@@ -109,7 +109,7 @@ function Diem({ day }: { day: boolean }) {
   return (
     <span
       className={cn(
-        "size-3.5 rounded-full border border-cam",
+        "size-3.5 sm:size-4 rounded-full border-2 border-cam transition-colors",
         day ? "bg-cam" : "bg-transparent"
       )}
     />
@@ -129,89 +129,110 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
-      className="fixed inset-0 z-[60] grid place-items-center bg-den/60 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[60] grid place-items-center bg-den/60 backdrop-blur-sm p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-label={`Công thức ${c.ten}`}
       onClick={dong}
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        exit={{ opacity: 0, scale: 0.92, y: 20 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-[1040px] rounded-[clamp(1.25rem,2.5vw,2rem)] bg-cam p-5 shadow-2xl sm:p-8"
+        className="relative w-full max-w-[1120px] rounded-[28px] sm:rounded-[36px] bg-cam p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Nút đóng tròn màu trắng với biểu tượng X màu cam góc trên bên phải INSIDE modal */}
         <button
           type="button"
           onClick={dong}
           aria-label="Đóng"
-          className="absolute -right-3 -top-3 z-10 grid size-9 place-items-center rounded-full bg-kem text-cam shadow-md transition-transform hover:scale-110 cursor-pointer"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 size-8 sm:size-9 rounded-full bg-trang text-cam flex items-center justify-center transition-transform hover:scale-110 shadow-sm cursor-pointer"
         >
-          <X className="size-5" />
+          <X className="size-5" strokeWidth={3} />
         </button>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-          <div className="relative aspect-square overflow-hidden rounded-2xl">
+        <div className="grid gap-6 lg:grid-cols-2 items-stretch">
+          {/* Bức ảnh Cocktail hình vuông góc bo tròn mịn */}
+          <div className="relative aspect-square w-full overflow-hidden rounded-[24px] shadow-sm">
             <Image
               src={`/images/ruou-mien/${c.anh}.webp`}
               alt={`Cocktail ${c.ten}`}
               fill
-              sizes="(max-width: 1024px) 92vw, 460px"
+              priority
+              sizes="(max-width: 1024px) 92vw, 520px"
               className="object-cover"
             />
           </div>
 
-          {/* Thẻ công thức kiểu "vé" Bài Chòi */}
-          <div className="rounded-2xl bg-kem-dam p-5 sm:p-6">
+          {/* Thẻ vé công thức màu kem (Cream Ticket Card) */}
+          <div className="rounded-[24px] bg-[#fbf4ea] p-4 sm:p-6 lg:p-7 flex flex-col justify-between shadow-sm relative">
+            {/* Logo Miên ở chính giữa trên cùng */}
             <Image
               src="/images/logo-header.webp"
               alt="Miên"
-              width={72}
-              height={24}
-              className="mx-auto h-6 w-auto"
+              width={96}
+              height={32}
+              priority
+              className="mx-auto h-6 sm:h-7 w-auto object-contain mb-3 sm:mb-4"
             />
 
-            <div className="relative mt-4 p-4">
-              <KhungVien mau="var(--color-cam)" className="inset-0" />
-              <div className="relative text-cam">
-                <div className="flex items-stretch gap-4 border-b-2 border-cam pb-2">
-                  <h3 className="flex-1 font-display text-2xl font-bold uppercase leading-none">
-                    {c.ten}
-                  </h3>
-                  <span className="border-l-2 border-cam" />
-                  <span className="font-display text-2xl font-bold uppercase leading-none">
-                    {c.do}
-                  </span>
-                </div>
+            {/* Khung viền góc khuyết bài chòi bọc TOÀN BỘ nội dung 100% Full Height */}
+            <div className="relative p-5 sm:p-7 flex-1 flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
+              <KhungVien mau="var(--color-cam)" doNet={2} className="inset-0 w-full h-full" />
 
-                <div className="grid grid-cols-[1fr_auto] gap-4 border-b-2 border-cam py-3">
-                  <dl className="space-y-1.5 text-sm">
-                    {c.nguyenLieu.map((n) => (
-                      <div key={n.ten} className="flex items-baseline justify-between gap-3">
-                        <dt>{n.ten}</dt>
-                        <dd className="shrink-0 tabular-nums">{n.luong}</dd>
-                      </div>
+              <div className="relative text-cam grid grid-cols-[1.35fr_1fr] h-full gap-0 z-10">
+                {/* Cột trái: Tiêu đề + Khối nguyên liệu cam chữ trắng + 5 vị giác */}
+                <div className="flex flex-col border-r-2 border-cam pr-5 sm:pr-7 justify-between">
+                  <div>
+                    {/* Dòng Tiêu đề */}
+                    <div className="h-9 sm:h-11 flex items-center mb-1">
+                      <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
+                        {c.ten}
+                      </h3>
+                    </div>
+
+                    {/* Khối Nguyên Liệu Cam Chữ Trắng - Nền cam tràn ra chạm viền Trái và Phải */}
+                    <dl className="bg-cam text-trang -ml-5 sm:-ml-7 -mr-5 sm:-mr-7 px-5 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs">
+                      {c.nguyenLieu.map((n) => (
+                        <div key={n.ten} className="flex items-baseline justify-between gap-3">
+                          <dt className="text-trang/95 font-medium">{n.ten}</dt>
+                          <dd className="shrink-0 tabular-nums font-bold text-trang">{n.luong}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+
+                  {/* Danh sách 5 thang đo Đặc điểm Vị giác */}
+                  <ul className="space-y-2 pt-2 text-xs sm:text-sm text-cam font-medium">
+                    {c.vi.map(([nhan, diem]) => (
+                      <li key={nhan} className="flex items-center justify-between gap-3">
+                        <span className="font-semibold text-cam">{nhan}</span>
+                        <span className="flex gap-2">
+                          {[1, 2, 3, 4, 5].map((i) => (
+                            <Diem key={i} day={i <= diem} />
+                          ))}
+                        </span>
+                      </li>
                     ))}
-                  </dl>
-                  <p className="max-w-[130px] border-l-2 border-cam pl-4 text-xs leading-relaxed">
-                    {c.cachLam}
-                  </p>
+                  </ul>
                 </div>
 
-                <ul className="space-y-2 pt-3 text-sm">
-                  {c.vi.map(([nhan, diem]) => (
-                    <li key={nhan} className="flex items-center justify-between gap-4">
-                      <span>{nhan}</span>
-                      <span className="flex gap-1.5">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <Diem key={i} day={i <= diem} />
-                        ))}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Cột phải: Độ rượu + Hướng dẫn cách làm */}
+                <div className="flex flex-col pl-5 sm:pl-7">
+                  {/* Dòng Độ rượu */}
+                  <div className="h-9 sm:h-11 flex items-center justify-center mb-1 text-center">
+                    <span className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
+                      {c.do}
+                    </span>
+                  </div>
+
+                  {/* Đoạn văn Hướng dẫn cách làm */}
+                  <div className="text-xs sm:text-sm leading-relaxed text-cam font-medium py-2">
+                    <p>{c.cachLam}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -239,7 +260,14 @@ export function MixVi() {
             <FadeIn key={c.ten} direction="up" delay={index * 0.1} className="h-full flex flex-col">
               <article className="flex flex-col items-center text-center group h-full justify-between">
                 <div className="w-full flex flex-col items-center">
-                  <div className="overflow-hidden rounded-[15px] w-full shrink-0">
+                  <div
+                    onClick={() => setChon(c)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setChon(c)}
+                    aria-label={`Xem chi tiết công thức ${c.ten}`}
+                    className="overflow-hidden rounded-[15px] w-full shrink-0 cursor-pointer outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
+                  >
                     <Image
                       src={`/images/ruou-mien/${c.anh}.webp`}
                       alt={`Cocktail ${c.ten}`}
@@ -267,7 +295,7 @@ export function MixVi() {
                   <button
                     type="button"
                     onClick={() => setChon(c)}
-                    className="inline-flex h-10 items-center rounded-full border border-cam bg-kem px-6 text-base text-cam transition-colors hover:bg-cam hover:text-trang cursor-pointer shadow-sm"
+                    className="inline-flex h-10 items-center rounded-full border border-cam bg-kem px-6 text-base text-cam transition-colors hover:bg-cam hover:text-trang cursor-pointer shadow-sm outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
                   >
                     Chi tiết
                   </button>
