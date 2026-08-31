@@ -47,13 +47,15 @@
   html {
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+    background-color: var(--color-kem);
     @apply font-sans;
   }
   html.du-tuoi #cong-tuoi-gate {
     display: none !important;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: var(--color-kem);
+    @apply text-foreground font-sans min-h-screen;
   }
   ::selection {
     background-color: var(--color-cam);

@@ -1,43 +1,103 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Đường viền trang trí góc khuyết (concave) — mô-típ khung "vé" của Miên, thấy
- * trong các thẻ đơn hàng. Vẽ bằng SVG kéo giãn theo khung cha (preserveAspectRatio
- * none); bán kính góc nhỏ nên độ méo cung không đáng kể.
+ * Đường viền trang trí góc khuyết (concave) — mô-típ khung "vé" đặc trưng của Miên.
+ * Tất cả 4 góc khuyết đều lõm vào trong (concave) tỉ lệ 1:1 chuẩn xác không bị dãn.
  */
 export function KhungVien({
   mau = "var(--color-cam)",
-  doNet = 1.25,
+  doNet = 1,
   className,
 }: {
   mau?: string;
   doNet?: number;
   className?: string;
 }) {
-  const r = 26;
-  const W = 400;
-  const H = 300;
-  const d = [
-    `M ${r} 0`,
-    `L ${W - r} 0`,
-    `A ${r} ${r} 0 0 0 ${W} ${r}`,
-    `L ${W} ${H - r}`,
-    `A ${r} ${r} 0 0 0 ${W - r} ${H}`,
-    `L ${r} ${H}`,
-    `A ${r} ${r} 0 0 0 0 ${H - r}`,
-    `L 0 ${r}`,
-    `A ${r} ${r} 0 0 0 ${r} 0`,
-    "Z",
-  ].join(" ");
+  const r = 24; // Bán kính góc khuyết lõm chuẩn pixel
+
   return (
-    <svg
-      viewBox={`0 0 ${W} ${H}`}
-      preserveAspectRatio="none"
-      fill="none"
+    <div
       aria-hidden
       className={cn("pointer-events-none absolute", className)}
     >
-      <path d={d} stroke={mau} strokeWidth={doNet} vectorEffect="non-scaling-stroke" />
-    </svg>
+      {/* 4 Đường viền thẳng nối giữa các góc */}
+      <div
+        className="absolute top-0"
+        style={{ left: r, right: r, height: doNet, backgroundColor: mau }}
+      />
+      <div
+        className="absolute bottom-0"
+        style={{ left: r, right: r, height: doNet, backgroundColor: mau }}
+      />
+      <div
+        className="absolute left-0"
+        style={{ top: r, bottom: r, width: doNet, backgroundColor: mau }}
+      />
+      <div
+        className="absolute right-0"
+        style={{ top: r, bottom: r, width: doNet, backgroundColor: mau }}
+      />
+
+      {/* 4 Góc khuyết LÕM VÀO TRONG (Concave) 1:1 hoàn hảo */}
+      {/* Top-Left Corner */}
+      <svg
+        className="absolute top-0 left-0"
+        width={r}
+        height={r}
+        viewBox={`0 0 ${r} ${r}`}
+        fill="none"
+      >
+        <path
+          d={`M 0 ${r} A ${r} ${r} 0 0 1 ${r} 0`}
+          stroke={mau}
+          strokeWidth={doNet * 2}
+        />
+      </svg>
+
+      {/* Top-Right Corner */}
+      <svg
+        className="absolute top-0 right-0"
+        width={r}
+        height={r}
+        viewBox={`0 0 ${r} ${r}`}
+        fill="none"
+      >
+        <path
+          d={`M 0 0 A ${r} ${r} 0 0 1 ${r} ${r}`}
+          stroke={mau}
+          strokeWidth={doNet * 2}
+        />
+      </svg>
+
+      {/* Bottom-Right Corner */}
+      <svg
+        className="absolute bottom-0 right-0"
+        width={r}
+        height={r}
+        viewBox={`0 0 ${r} ${r}`}
+        fill="none"
+      >
+        <path
+          d={`M ${r} 0 A ${r} ${r} 0 0 1 0 ${r}`}
+          stroke={mau}
+          strokeWidth={doNet * 2}
+        />
+      </svg>
+
+      {/* Bottom-Left Corner */}
+      <svg
+        className="absolute bottom-0 left-0"
+        width={r}
+        height={r}
+        viewBox={`0 0 ${r} ${r}`}
+        fill="none"
+      >
+        <path
+          d={`M ${r} ${r} A ${r} ${r} 0 0 1 0 0`}
+          stroke={mau}
+          strokeWidth={doNet * 2}
+        />
+      </svg>
+    </div>
   );
 }

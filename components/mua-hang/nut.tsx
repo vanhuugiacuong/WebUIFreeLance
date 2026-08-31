@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-/** Nút bo tròn cho luồng đặt hàng — dạng nút hoặc liên kết. */
+/** Nút bo tròn cho luồng đặt hàng — dạng nút hoặc liên kết với hiệu ứng hover/active 3D. */
 export function Nut({
   bien = "chinh",
   href,
@@ -22,12 +21,13 @@ export function Nut({
   children,
 }: Props) {
   const cls = cn(
-    "inline-flex h-11 min-w-[180px] items-center justify-center rounded-full px-8 text-base transition-colors",
+    "inline-flex h-11 min-w-[180px] items-center justify-center rounded-full px-8 text-base font-medium transition-all duration-300 shadow-sm cursor-pointer outline-none focus:outline-none focus:ring-0",
     bien === "chinh"
-      ? "bg-cam text-trang hover:opacity-90"
-      : "border border-cam bg-kem text-cam hover:bg-cam hover:text-trang",
+      ? "bg-cam text-trang hover:bg-cam/90 hover:scale-105 hover:shadow-md active:scale-95"
+      : "border border-cam bg-kem text-cam hover:bg-cam hover:text-trang hover:scale-105 hover:shadow-md active:scale-95",
     className
   );
+
   if (href) {
     return (
       <Link href={href} className={cls} onClick={onClick}>

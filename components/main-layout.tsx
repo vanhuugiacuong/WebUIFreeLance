@@ -9,11 +9,13 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
   const { isVerified } = useAge();
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-kem">
       <CongTuoi />
       <SiteHeader />
-      <main key={isVerified ? "verified" : "unverified"}>{children}</main>
+      <main key={isVerified ? "verified" : "unverified"} className="flex-1">
+        {children}
+      </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }
