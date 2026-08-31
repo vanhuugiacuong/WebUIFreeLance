@@ -37,7 +37,7 @@ export function PhanSanPhamRieng() {
           type="button"
           onClick={truoc}
           aria-label="Sản phẩm trước"
-          className="absolute -left-2 sm:-left-6 lg:-left-10 top-[220px] lg:top-[180px] z-20 size-9 sm:size-11 rounded-full bg-cam-nhat/20 text-cam flex items-center justify-center transition-all hover:bg-cam hover:text-trang hover:scale-110 cursor-pointer shadow-sm"
+          className="absolute -left-2 sm:-left-6 lg:-left-10 top-[220px] lg:top-[180px] z-20 size-10 sm:size-12 rounded-full bg-cam-nhat/30 text-cam flex items-center justify-center transition-all duration-300 hover:bg-cam hover:text-trang hover:scale-115 active:scale-95 hover:shadow-lg cursor-pointer backdrop-blur-xs outline-none focus:outline-none"
         >
           <ChevronLeft className="size-6 sm:size-7" strokeWidth={2.5} />
         </button>
@@ -45,7 +45,7 @@ export function PhanSanPhamRieng() {
           type="button"
           onClick={sau}
           aria-label="Sản phẩm sau"
-          className="absolute -right-2 sm:-right-6 lg:-right-10 top-[220px] lg:top-[180px] z-20 size-9 sm:size-11 rounded-full bg-cam-nhat/20 text-cam flex items-center justify-center transition-all hover:bg-cam hover:text-trang hover:scale-110 cursor-pointer shadow-sm"
+          className="absolute -right-2 sm:-right-6 lg:-right-10 top-[220px] lg:top-[180px] z-20 size-10 sm:size-12 rounded-full bg-cam-nhat/30 text-cam flex items-center justify-center transition-all duration-300 hover:bg-cam hover:text-trang hover:scale-115 active:scale-95 hover:shadow-lg cursor-pointer backdrop-blur-xs outline-none focus:outline-none"
         >
           <ChevronRight className="size-6 sm:size-7" strokeWidth={2.5} />
         </button>
@@ -94,12 +94,12 @@ export function PhanSanPhamRieng() {
 
                 {/* Bộ đếm số lượng + Nút Thêm vào giỏ */}
                 <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <div className="flex items-center rounded-md border border-den/40 px-2 py-1 bg-kem/50">
+                  <div className="flex items-center rounded-md border border-den/40 px-2 py-1 bg-kem/50 shadow-xs">
                     <button
                       type="button"
                       onClick={giam}
                       aria-label="Giảm số lượng"
-                      className="size-7 flex items-center justify-center text-lg font-medium text-den hover:text-cam cursor-pointer transition-colors"
+                      className="size-7 flex items-center justify-center text-lg font-medium text-den hover:text-cam cursor-pointer transition-transform duration-200 hover:scale-125 active:scale-95 outline-none"
                     >
                       &minus;
                     </button>
@@ -110,7 +110,7 @@ export function PhanSanPhamRieng() {
                       type="button"
                       onClick={tang}
                       aria-label="Tăng số lượng"
-                      className="size-7 flex items-center justify-center text-lg font-medium text-den hover:text-cam cursor-pointer transition-colors"
+                      className="size-7 flex items-center justify-center text-lg font-medium text-den hover:text-cam cursor-pointer transition-transform duration-200 hover:scale-125 active:scale-95 outline-none"
                     >
                       +
                     </button>
@@ -118,37 +118,37 @@ export function PhanSanPhamRieng() {
 
                   <Link
                     href="/mua-hang"
-                    className="inline-flex h-10 items-center rounded-full bg-cam px-6 text-sm sm:text-base font-medium text-trang transition-all hover:opacity-90 hover:scale-105 shadow-sm"
+                    className="inline-flex h-10 items-center rounded-full bg-cam px-7 text-sm sm:text-base font-medium text-trang transition-all duration-300 hover:bg-cam/90 hover:scale-108 hover:shadow-lg active:scale-95 cursor-pointer outline-none"
                   >
                     Thêm vào giỏ
                   </Link>
                 </div>
               </div>
 
-              {/* Cột phải: Bức ảnh chai rượu */}
-              <div className="flex justify-center items-center">
+              {/* Cột phải: Bức ảnh chai rượu với hiệu ứng hover float & tilt */}
+              <div className="flex justify-center items-center group cursor-pointer">
                 <Image
                   src={sp.anhChai}
                   alt={`Chai ${sp.ten}`}
                   width={318}
                   height={542}
                   priority
-                  className="h-[360px] sm:h-[420px] lg:h-[480px] w-auto object-contain drop-shadow-md transition-transform duration-500 hover:scale-105"
+                  className="h-[360px] sm:h-[420px] lg:h-[480px] w-auto object-contain drop-shadow-md transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2 group-hover:-rotate-1 group-hover:drop-shadow-2xl"
                 />
               </div>
             </div>
 
-            {/* Phân đoạn 2: ĐẶC ĐIỂM NỔI BẬT */}
+            {/* Phân đoạn 2: ĐẶC ĐIỂM NỔI BẬT với hiệu ứng hover lift-up & float */}
             <div className="flex flex-col items-center mt-6">
               <h2 className="text-center font-display text-2xl sm:text-3xl font-bold uppercase tracking-wider leading-tight text-cam">
                 Đặc điểm nổi bật
               </h2>
               <div className="mt-10 grid w-full max-w-[1040px] gap-6 sm:grid-cols-3">
                 <div
-                  className="flex flex-col items-center justify-center bg-cam p-6 text-center text-kem min-h-[200px]"
+                  className="group flex flex-col items-center justify-center bg-cam p-6 text-center text-kem min-h-[200px] transition-all duration-500 hover:-translate-y-2.5 hover:scale-[1.03] hover:shadow-2xl cursor-pointer"
                   style={gocKhuyet("22px")}
                 >
-                  <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang">
+                  <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang transition-transform duration-300 group-hover:scale-105">
                     MÀU SẮC
                   </p>
                   <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95">
@@ -157,10 +157,10 @@ export function PhanSanPhamRieng() {
                 </div>
 
                 <div
-                  className="flex flex-col items-center justify-center bg-cam p-6 text-center text-kem min-h-[200px]"
+                  className="group flex flex-col items-center justify-center bg-cam p-6 text-center text-kem min-h-[200px] transition-all duration-500 hover:-translate-y-2.5 hover:scale-[1.03] hover:shadow-2xl cursor-pointer"
                   style={gocKhuyet("22px")}
                 >
-                  <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang">
+                  <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang transition-transform duration-300 group-hover:scale-105">
                     MÙI HƯƠNG
                   </p>
                   <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95">
@@ -169,10 +169,10 @@ export function PhanSanPhamRieng() {
                 </div>
 
                 <div
-                  className="flex flex-col items-center justify-center bg-cam p-6 text-center text-kem min-h-[200px]"
+                  className="group flex flex-col items-center justify-center bg-cam p-6 text-center text-kem min-h-[200px] transition-all duration-500 hover:-translate-y-2.5 hover:scale-[1.03] hover:shadow-2xl cursor-pointer"
                   style={gocKhuyet("22px")}
                 >
-                  <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang">
+                  <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang transition-transform duration-300 group-hover:scale-105">
                     HƯƠNG VỊ
                   </p>
                   <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95">

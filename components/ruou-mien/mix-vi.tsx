@@ -128,7 +128,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: 0.3 }}
       className="fixed inset-0 z-[60] grid place-items-center bg-den/60 backdrop-blur-sm p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
@@ -136,38 +136,51 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
       onClick={dong}
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        initial={{ opacity: 0, scale: 0.9, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.92, y: 20 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        exit={{ opacity: 0, scale: 0.9, y: 30 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         className="relative w-full max-w-[1120px] rounded-[28px] sm:rounded-[36px] bg-cam p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Nút đóng tròn màu trắng với biểu tượng X màu cam góc trên bên phải INSIDE modal */}
-        <button
+        <motion.button
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           type="button"
           onClick={dong}
           aria-label="Đóng"
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 size-8 sm:size-9 rounded-full bg-trang text-cam flex items-center justify-center transition-transform hover:scale-110 shadow-sm cursor-pointer"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 size-8 sm:size-9 rounded-full bg-trang text-cam flex items-center justify-center transition-transform hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
         >
           <X className="size-5" strokeWidth={3} />
-        </button>
+        </motion.button>
 
         <div className="grid gap-6 lg:grid-cols-2 items-stretch">
-          {/* Bức ảnh Cocktail hình vuông góc bo tròn mịn */}
-          <div className="relative aspect-square w-full overflow-hidden rounded-[24px] shadow-sm">
+          {/* Bức ảnh Cocktail hình vuông góc bo tròn mịn - Slide in from Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative aspect-square w-full overflow-hidden rounded-[24px] shadow-sm"
+          >
             <Image
               src={`/images/ruou-mien/${c.anh}.webp`}
               alt={`Cocktail ${c.ten}`}
               fill
               priority
               sizes="(max-width: 1024px) 92vw, 520px"
-              className="object-cover"
+              className="object-cover transition-transform duration-700 hover:scale-105"
             />
-          </div>
+          </motion.div>
 
-          {/* Thẻ vé công thức màu kem (Cream Ticket Card) */}
-          <div className="rounded-[24px] bg-[#fbf4ea] p-4 sm:p-6 lg:p-7 flex flex-col justify-between shadow-sm relative">
+          {/* Thẻ vé công thức màu kem (Cream Ticket Card) - Slide in from Right */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-[24px] bg-[#fbf4ea] p-4 sm:p-6 lg:p-7 flex flex-col justify-between shadow-sm relative"
+          >
             {/* Logo Miên ở chính giữa trên cùng */}
             <Image
               src="/images/logo-header.webp"
@@ -187,34 +200,50 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
                 <div className="flex flex-col border-r-2 border-cam pr-5 sm:pr-7 justify-between">
                   <div>
                     {/* Dòng Tiêu đề */}
-                    <div className="h-9 sm:h-11 flex items-center mb-1">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                      className="h-9 sm:h-11 flex items-center mb-1"
+                    >
                       <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
                         {c.ten}
                       </h3>
-                    </div>
+                    </motion.div>
 
                     {/* Khối Nguyên Liệu Cam Chữ Trắng - Nền cam tràn ra chạm viền Trái và Phải */}
-                    <dl className="bg-cam text-trang -ml-5 sm:-ml-7 -mr-5 sm:-mr-7 px-5 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs">
+                    <motion.dl
+                      initial={{ opacity: 0, scale: 0.96, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.35, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                      className="bg-cam text-trang -ml-5 sm:-ml-7 -mr-5 sm:-mr-7 px-5 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs"
+                    >
                       {c.nguyenLieu.map((n) => (
                         <div key={n.ten} className="flex items-baseline justify-between gap-3">
                           <dt className="text-trang/95 font-medium">{n.ten}</dt>
                           <dd className="shrink-0 tabular-nums font-bold text-trang">{n.luong}</dd>
                         </div>
                       ))}
-                    </dl>
+                    </motion.dl>
                   </div>
 
-                  {/* Danh sách 5 thang đo Đặc điểm Vị giác */}
+                  {/* Danh sách 5 thang đo Đặc điểm Vị giác - Staggered fade in */}
                   <ul className="space-y-2 pt-2 text-xs sm:text-sm text-cam font-medium">
-                    {c.vi.map(([nhan, diem]) => (
-                      <li key={nhan} className="flex items-center justify-between gap-3">
+                    {c.vi.map(([nhan, diem], idx) => (
+                      <motion.li
+                        key={nhan}
+                        initial={{ opacity: 0, x: -12 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.25, delay: 0.3 + idx * 0.05 }}
+                        className="flex items-center justify-between gap-3"
+                      >
                         <span className="font-semibold text-cam">{nhan}</span>
                         <span className="flex gap-2">
                           {[1, 2, 3, 4, 5].map((i) => (
                             <Diem key={i} day={i <= diem} />
                           ))}
                         </span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
@@ -222,20 +251,30 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
                 {/* Cột phải: Độ rượu + Hướng dẫn cách làm */}
                 <div className="flex flex-col pl-5 sm:pl-7">
                   {/* Dòng Độ rượu */}
-                  <div className="h-9 sm:h-11 flex items-center justify-center mb-1 text-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    className="h-9 sm:h-11 flex items-center justify-center mb-1 text-center"
+                  >
                     <span className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
                       {c.do}
                     </span>
-                  </div>
+                  </motion.div>
 
                   {/* Đoạn văn Hướng dẫn cách làm */}
-                  <div className="text-xs sm:text-sm leading-relaxed text-cam font-medium py-2">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: 0.3 }}
+                    className="text-xs sm:text-sm leading-relaxed text-cam font-medium py-2"
+                  >
                     <p>{c.cachLam}</p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </motion.div>

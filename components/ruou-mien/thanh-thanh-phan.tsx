@@ -94,10 +94,10 @@ export function ThanhThanhPhan({ thanhPhan, className = "" }: ThanhThanhPhanProp
             WebkitMaskComposite: "destination-in",
           }}
         >
-          {/* 3 Chai nguyên liệu dạng silhouette đi kèm nhãn chữ bên dưới */}
+          {/* 3 Chai nguyên liệu dạng silhouette đi kèm nhãn chữ bên dưới với hiệu ứng hover float */}
           <div className="grid grid-cols-3 gap-2 sm:gap-4 items-end justify-center pt-2 px-4 sm:px-6">
             {thanhPhan.map((item, idx) => (
-              <div key={`${item.ten}-${idx}`} className="flex flex-col items-center group">
+              <div key={`${item.ten}-${idx}`} className="flex flex-col items-center group cursor-pointer">
                 <div className="relative h-[135px] sm:h-[165px] lg:h-[185px] w-full flex items-end justify-center">
                   <Image
                     src={item.anh}
@@ -105,10 +105,10 @@ export function ThanhThanhPhan({ thanhPhan, className = "" }: ThanhThanhPhanProp
                     width={120}
                     height={280}
                     priority
-                    className="h-full w-auto object-contain block transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+                    className="h-full w-auto object-contain block transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 drop-shadow-sm group-hover:drop-shadow-lg"
                   />
                 </div>
-                <p className="mt-3 text-center font-display text-[11px] sm:text-xs font-bold uppercase tracking-wider text-trang leading-tight">
+                <p className="mt-3 text-center font-display text-[11px] sm:text-xs font-bold uppercase tracking-wider text-trang leading-tight transition-transform duration-300 group-hover:scale-105">
                   {item.ten}
                 </p>
               </div>
