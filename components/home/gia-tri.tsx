@@ -8,19 +8,19 @@ const GIA_TRI = [
     anh: "/images/gia-tri-nong-am.webp",
     ten: "Nồng ấm",
     mo_ta:
-      "Mỗi giọt rượu là sự giao hòa giữa đất, người và văn hóa. Mộc mạc nhưng tinh tế, đậm đà nhưng không cũ kỹ",
+      "Mỗi giọt rượu là sự giao hòa giữa đất, người và văn hóa. Mộc mạc nhưng tinh tế, đậm đà nhưng không cũ\u00A0kỹ.",
   },
   {
     anh: "/images/gia-tri-ban-dia.webp",
     ten: "Bản địa",
     mo_ta:
-      "Miên đưa tinh thần Bài Chòi vào nhận diện, chắt lọc nét đặc trưng để kể câu chuyện văn hóa miền Trung theo cách riêng",
+      "Miên đưa tinh thần Bài Chòi vào nhận diện, chắt lọc nét đặc trưng để kể câu chuyện văn hóa miền Trung theo cách\u00A0riêng.",
   },
   {
     anh: "/images/gia-tri-hien-dai.webp",
     ten: "Hiện đại",
     mo_ta:
-      "Miên chuyển hóa giá trị truyền thống bằng ngôn ngữ thiết kế đương đại, tối giản và linh hoạt, tạo nên cách tiếp cận gần gũi",
+      "Miên chuyển hóa giá trị truyền thống bằng ngôn ngữ thiết kế đương đại, tối giản và linh hoạt, tạo nên cách tiếp cận gần\u00A0gũi.",
   },
 ];
 
@@ -65,7 +65,7 @@ export function GiaTri() {
               <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-wider text-cam transition-colors duration-300 group-hover:text-cam-hero">
                 {g.ten}
               </h3>
-              <p className="mt-3 sm:mt-4 max-w-[320px] text-xs sm:text-sm lg:text-base leading-relaxed text-den transition-colors duration-300 group-hover:text-den/80">
+              <p className="mt-3 sm:mt-4 max-w-[320px] text-sm sm:text-base leading-relaxed text-den text-balance transition-colors duration-300 group-hover:text-den/80">
                 {g.mo_ta}
               </p>
             </div>

@@ -74,7 +74,7 @@ export function PhanSanPhamRieng() {
 
               {/* Cột giữa: THÔNG TIN sản phẩm + Giá + Nút mua */}
               <div className="flex flex-col justify-start min-w-[220px]">
-                <h3 className="font-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-cam">
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam leading-tight">
                   THÔNG TIN
                 </h3>
                 <dl className="mt-6 space-y-4 text-sm sm:text-base text-den/90">
@@ -88,7 +88,7 @@ export function PhanSanPhamRieng() {
                   </div>
                   <div>
                     <dt className="font-semibold text-den">Giá thành</dt>
-                    <dd className="font-semibold text-den">{sp.gia}</dd>
+                    <dd className="text-den/80">{sp.gia}</dd>
                   </div>
                 </dl>
 
@@ -118,7 +118,7 @@ export function PhanSanPhamRieng() {
 
                   <Link
                     href="/mua-hang"
-                    className="inline-flex h-10 items-center rounded-full bg-cam px-7 text-sm sm:text-base font-medium text-trang transition-all duration-300 hover:bg-cam/90 hover:scale-108 hover:shadow-lg active:scale-95 cursor-pointer outline-none"
+                    className="inline-flex h-10 items-center rounded-full bg-cam px-7 text-sm sm:text-base font-normal text-trang transition-all duration-300 hover:bg-cam/90 hover:scale-108 hover:shadow-lg active:scale-95 cursor-pointer outline-none"
                   >
                     Thêm vào giỏ
                   </Link>
@@ -151,7 +151,7 @@ export function PhanSanPhamRieng() {
                   <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang transition-transform duration-300 group-hover:scale-105">
                     MÀU SẮC
                   </p>
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95">
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95 text-balance">
                     {sp.dacDiem.mauSac}
                   </p>
                 </div>
@@ -163,7 +163,7 @@ export function PhanSanPhamRieng() {
                   <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang transition-transform duration-300 group-hover:scale-105">
                     MÙI HƯƠNG
                   </p>
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95">
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95 text-balance">
                     {sp.dacDiem.muiHuong}
                   </p>
                 </div>
@@ -175,7 +175,7 @@ export function PhanSanPhamRieng() {
                   <p className="text-base sm:text-lg font-bold uppercase tracking-wider text-trang transition-transform duration-300 group-hover:scale-105">
                     HƯƠNG VỊ
                   </p>
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95">
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-trang/95 text-balance">
                     {sp.dacDiem.huongVi}
                   </p>
                 </div>

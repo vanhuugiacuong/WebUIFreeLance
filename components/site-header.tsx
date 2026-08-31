@@ -150,7 +150,7 @@ export function SiteHeader() {
         <div className="hidden lg:flex items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-14 2xl:gap-18">
           <Link
             href="/mua-hang"
-            className="inline-flex h-9 items-center rounded-full bg-cam px-6 text-sm sm:text-base font-medium text-trang whitespace-nowrap shrink-0 transition-opacity hover:opacity-90"
+            className="inline-flex h-9 items-center rounded-full bg-cam px-6 text-sm sm:text-base font-normal text-trang whitespace-nowrap shrink-0 transition-opacity hover:opacity-90"
           >
             Mua hàng
           </Link>

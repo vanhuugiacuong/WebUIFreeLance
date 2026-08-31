@@ -77,7 +77,7 @@ export function DanhGia() {
             <br />
             TẠI RƯỢU MIÊN
           </h2>
-          <p className="mt-6 text-base font-semibold text-cam">
+          <p className="mt-6 text-base font-normal text-cam text-balance">
             Miên luôn trân trọng từng lời đánh giá tận tâm từ những vị khách quý.
           </p>
           <div className="mt-8">
@@ -85,14 +85,14 @@ export function DanhGia() {
           </div>
         </FadeIn>
 
-        <FadeIn direction="left" delay={0.2}>
-          <p className="text-base font-semibold text-cam lg:min-h-[111px]">
+        <FadeIn direction="left" delay={0.2} className="flex flex-col justify-end">
+          <p className="text-base font-normal text-cam text-balance mb-6">
             Hãy để chúng tôi biết những cảm xúc của bạn sau khi trải nghiệm tại
             Miên nhé!
           </p>
 
           <div
-            className="mt-6 flex gap-4"
+            className="flex gap-4"
             role="tablist"
             aria-label="Loại phản hồi"
           >
@@ -107,7 +107,7 @@ export function DanhGia() {
                   setDaGui(false);
                 }}
                 className={cn(
-                  "h-11 px-7 text-sm font-medium transition-colors cursor-pointer rounded-full",
+                  "h-11 px-7 text-sm font-normal transition-colors cursor-pointer rounded-full",
                   tab === t.id
                     ? "bg-[#fcae84] text-den"
                     : "bg-[#fcd7c2]/60 text-den/80 hover:bg-[#fcd7c2]"
@@ -174,7 +174,7 @@ export function DanhGia() {
 
             <button
               type="submit"
-              className="mt-3 h-11 w-full rounded-full bg-cam text-base font-medium text-trang transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-95 cursor-pointer"
+              className="mt-3 h-11 w-full rounded-full bg-cam text-base font-normal text-trang transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-95 cursor-pointer"
             >
               {daGui ? "Đã gửi phản hồi!" : "Gửi"}
             </button>

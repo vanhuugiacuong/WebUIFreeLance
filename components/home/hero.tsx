@@ -29,7 +29,7 @@ export function Hero() {
         Rượu Miên — thưởng vị đậm đà, giao vị, trao men gắn kết
       </h1>
 
-      <Container className="flex flex-col items-center pt-[clamp(16rem,30vw,27.5rem)] pb-[clamp(3rem,7vw,6.5rem)]">
+      <Container className="flex flex-col items-center pt-[clamp(18rem,33vw,30rem)] pb-[clamp(3rem,7vw,6.5rem)]">
         <div className="grid w-full grid-cols-2 items-center gap-x-6 gap-y-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-x-10">
           {/* Badge: trên mobile ở hàng đầu, desktop ở vị trí giữa */}
           <motion.div
@@ -88,14 +88,14 @@ export function Hero() {
           </motion.address>
         </div>
 
-        {/* Nút Đăng ký ngay căn giữa ở dưới, dâng lên ngang hàng 2 bên */}
+        {/* Nút Đăng ký ngay màu kem, dời vị trí xuống dưới */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="-mt-[clamp(2.5rem,5vw,4.5rem)] z-10"
+          className="mt-6 sm:mt-8 lg:mt-10 z-10"
         >
-          <NutMuiTen href="/mua-hang">
+          <NutMuiTen href="/mua-hang" mau="kem">
             Đăng ký ngay
           </NutMuiTen>
         </motion.div>

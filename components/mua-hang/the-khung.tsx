@@ -27,7 +27,7 @@ export function TheKhung({
       <KhungVien
         mau={laCam ? "var(--color-kem)" : "var(--color-cam)"}
         doNet={1}
-        className="inset-3 sm:inset-4 lg:inset-5"
+        className="inset-2.5 sm:inset-3 lg:inset-3.5"
       />
       <div className="relative z-10">{children}</div>
     </div>

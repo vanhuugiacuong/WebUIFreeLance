@@ -9,19 +9,19 @@ export function VeChungToi() {
     <section className="py-[clamp(3rem,7vw,7.5rem)]">
       <Container
         narrow
-        className="grid items-center gap-10 md:grid-cols-[239fr_559fr] md:gap-[159px]"
+        className="grid items-start gap-10 md:grid-cols-[239fr_559fr] md:gap-[100px] lg:gap-[159px]"
       >
         <FadeIn direction="right">
           <h2 className="font-display text-d2 font-bold text-cam">
             VỀ CHÚNG TÔI
           </h2>
-          <p className="mt-10 text-base text-den ">
+          <p className="mt-6 text-base text-den leading-relaxed">
             Việt Nam có một kho tàng hương vị rượu say đắm lòng người, được chắt
             chiu từ hạt gạo thơm và men lá ngàn năm. Thương hiệu Miên ra đời với
             sứ mệnh khơi dậy niềm tự hào đó. Chúng tôi mang dòng chảy truyền
             thống hòa vào dòng sống hiện đại.
           </p>
-          <NutMuiTen href="/ve-chung-toi" className="mt-8">
+          <NutMuiTen href="/ve-chung-toi" className="mt-6">
             Xem thêm
           </NutMuiTen>
         </FadeIn>
