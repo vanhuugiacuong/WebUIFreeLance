@@ -4,32 +4,19 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const KHOA = "mien-du-tuoi";
+import { useAge } from "@/components/providers/age-provider";
 
 /**
  * Cổng xác minh độ tuổi:
  * - Lần đầu người dùng truy cập (chưa có localStorage "mien-du-tuoi"), cổng xác minh sẽ hiển thị.
- * - Khi người dùng bấm "Đúng", hệ thống sẽ ghi nhớ vào localStorage và ẩn cổng cho những lần truy cập sau.
+ * - Khi người dùng bấm "Đúng", hệ thống sẽ ghi nhớ vào localStorage, ẩn cổng và kích hoạt toàn bộ animation trang chủ.
  */
 export function CongTuoi() {
-  const [daXacNhan, setDaXacNhan] = useState(false);
+  const { isVerified, confirmAge } = useAge();
   const [nho, setNho] = useState(true);
   const [tuChoi, setTuChoi] = useState(false);
 
-  useEffect(() => {
-    // Đọc localStorage chỉ chạy được ở client → phải setState trong effect (an toàn ở đây)
-    /* eslint-disable react-hooks/set-state-in-effect */
-    try {
-      if (localStorage.getItem(KHOA) === "1") {
-        setDaXacNhan(true);
-        document.documentElement.classList.add("du-tuoi");
-      }
-    } catch {}
-    /* eslint-enable react-hooks/set-state-in-effect */
-  }, []);
-
-  const hienThi = !daXacNhan;
+  const hienThi = !isVerified;
 
   useEffect(() => {
     if (!hienThi) return;
@@ -41,11 +28,7 @@ export function CongTuoi() {
   }, [hienThi]);
 
   const dongY = () => {
-    try {
-      localStorage.setItem(KHOA, "1");
-      document.documentElement.classList.add("du-tuoi");
-    } catch {}
-    setDaXacNhan(true);
+    confirmAge();
   };
 
   return (

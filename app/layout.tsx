@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Phudu, Montserrat } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { CongTuoi } from "@/components/cong-tuoi";
 import { LenisProvider } from "@/components/providers/lenis-provider";
+import { AgeProvider } from "@/components/providers/age-provider";
+import { MainLayout } from "@/components/main-layout";
 
 const phudu = Phudu({
   subsets: ["latin", "vietnamese"],
@@ -46,10 +45,9 @@ export default function RootLayout({
           như cz-shortcut-listen vào <body> trước khi React hydrate */}
       <body className="antialiased" suppressHydrationWarning>
         <LenisProvider>
-          <CongTuoi />
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
+          <AgeProvider>
+            <MainLayout>{children}</MainLayout>
+          </AgeProvider>
         </LenisProvider>
       </body>
     </html>
