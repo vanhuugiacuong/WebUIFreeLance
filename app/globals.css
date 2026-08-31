@@ -1,26 +1,145 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ---- Mau ---- */
+  --color-cam: #f04f24;
+  --color-cam-nhat: #fbb584;
+  /* Cam nen hero — do truc tiep tu anh, dung cho phan khoet rong trong badge */
+  --color-cam-hero: #f65200;
+  --color-kem: #fff3e7;
+  --color-kem-dam: #f9f1e8;
+  --color-den: #000000;
+  --color-trang: #ffffff;
+  --color-xam: #898989;
+  --color-xam-nhat: #d9d9d9;
+
+  /* ---- Font ---- */
+  --font-display: var(--font-phudu), ui-serif, Georgia, serif;
+  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  /* ---- Thang chu (do tu Figma) ---- */
+  --text-d1: 4rem;          /* 64px - tieu de hero */
+  --text-d1--line-height: 1.203;
+  --text-d2: 2.5rem;        /* 40px - tieu de section */
+  --text-d2--line-height: 1.25;
+  --text-d3: 2.0625rem;     /* 33px */
+  --text-d3--line-height: 1.212;
+  --text-d4: 2rem;          /* 32px */
+  --text-d4--line-height: 0.906;
+  --text-lg: 1.25rem;       /* 20px */
+  --text-lg--line-height: 1.2;
+  --text-base: 1rem;        /* 16px - chu chinh */
+  --text-base--line-height: 1.5;
+  --text-sm: 0.875rem;      /* 14px */
+  --text-sm--line-height: 1.714;
+  --text-xs: 0.75rem;       /* 12px */
+  --text-xs--line-height: 2;
+
+  /* ---- Container (suy ra tu le trai/phai trong Figma) ---- */
+  --container-main: 1152px;
+  --container-narrow: 956px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+  html.du-tuoi #cong-tuoi-gate {
+    display: none !important;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  ::selection {
+    background-color: var(--color-cam);
+    color: var(--color-trang);
+  }
+  * {
+    @apply border-border outline-ring/50;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --font-heading: var(--font-display);
+  --font-sans: var(--font-body);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Anh xa token shadcn -> mau thuong hieu Mien */
+  --background: var(--color-kem);
+  --foreground: var(--color-den);
+  --card: var(--color-trang);
+  --card-foreground: var(--color-den);
+  --popover: var(--color-trang);
+  --popover-foreground: var(--color-den);
+  --primary: var(--color-cam);
+  --primary-foreground: var(--color-kem);
+  --secondary: var(--color-kem-dam);
+  --secondary-foreground: var(--color-den);
+  --muted: var(--color-kem-dam);
+  --muted-foreground: var(--color-xam);
+  --accent: var(--color-cam-nhat);
+  --accent-foreground: var(--color-den);
+  --destructive: #b3261e;
+  --border: var(--color-xam-nhat);
+  --input: var(--color-xam-nhat);
+  --ring: var(--color-cam);
+  --chart-1: var(--color-cam);
+  --chart-2: var(--color-cam-nhat);
+  --chart-3: var(--color-kem-dam);
+  --chart-4: var(--color-xam);
+  --chart-5: var(--color-xam-nhat);
+  --sidebar: var(--color-kem);
+  --sidebar-foreground: var(--color-den);
+  --sidebar-primary: var(--color-cam);
+  --sidebar-primary-foreground: var(--color-kem);
+  --sidebar-accent: var(--color-kem-dam);
+  --sidebar-accent-foreground: var(--color-den);
+  --sidebar-border: var(--color-xam-nhat);
+  --sidebar-ring: var(--color-cam);
 }

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Anh/font goc tu Figma - khong dua vao build
+design-assets/
