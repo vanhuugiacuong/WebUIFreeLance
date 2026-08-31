@@ -48,7 +48,7 @@ export function KhungVien({
         fill="none"
       >
         <path
-          d={`M 0 ${r} A ${r} ${r} 0 0 1 ${r} 0`}
+          d={`M 0 ${r} A ${r} ${r} 0 0 0 ${r} 0`}
           stroke={mau}
           strokeWidth={doNet * 2}
         />
@@ -63,7 +63,7 @@ export function KhungVien({
         fill="none"
       >
         <path
-          d={`M 0 0 A ${r} ${r} 0 0 1 ${r} ${r}`}
+          d={`M 0 0 A ${r} ${r} 0 0 0 ${r} ${r}`}
           stroke={mau}
           strokeWidth={doNet * 2}
         />
@@ -78,7 +78,7 @@ export function KhungVien({
         fill="none"
       >
         <path
-          d={`M ${r} 0 A ${r} ${r} 0 0 1 0 ${r}`}
+          d={`M ${r} 0 A ${r} ${r} 0 0 0 0 ${r}`}
           stroke={mau}
           strokeWidth={doNet * 2}
         />
@@ -93,7 +93,7 @@ export function KhungVien({
         fill="none"
       >
         <path
-          d={`M ${r} ${r} A ${r} ${r} 0 0 1 0 0`}
+          d={`M ${r} ${r} A ${r} ${r} 0 0 0 0 0`}
           stroke={mau}
           strokeWidth={doNet * 2}
         />

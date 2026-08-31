@@ -140,7 +140,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 30 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-[1120px] rounded-[28px] sm:rounded-[36px] bg-cam p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-[1120px] rounded-[28px] sm:rounded-[36px] bg-cam p-8 sm:p-11 lg:p-14 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Nút đóng tròn màu trắng với biểu tượng X màu cam góc trên bên phải INSIDE modal */}
@@ -156,7 +156,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
           <X className="size-5" strokeWidth={3} />
         </motion.button>
 
-        <div className="grid gap-6 lg:grid-cols-2 items-stretch">
+        <div className="grid gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-2 items-stretch">
           {/* Bức ảnh Cocktail hình vuông góc bo tròn mịn - Slide in from Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -192,19 +192,19 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
             />
 
             {/* Khung viền góc khuyết bài chòi bọc TOÀN BỘ nội dung 100% Full Height */}
-            <div className="relative p-5 sm:p-7 flex-1 flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
+            <div className="relative p-6 sm:p-8 flex-1 flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
               <KhungVien mau="var(--color-cam)" doNet={2} className="inset-0 w-full h-full" />
 
               <div className="relative text-cam grid grid-cols-[1.35fr_1fr] h-full gap-0 z-10">
                 {/* Cột trái: Tiêu đề + Khối nguyên liệu cam chữ trắng + 5 vị giác */}
                 <div className="flex flex-col border-r-2 border-cam pr-5 sm:pr-7 justify-between">
                   <div>
-                    {/* Dòng Tiêu đề */}
+                    {/* Dòng Tiêu đề - Căn giữa theo chiều dọc trong khoảng không gian trên khối nguyên liệu */}
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: 0.2 }}
-                      className="h-9 sm:h-11 flex items-center mb-1"
+                      className="min-h-[48px] sm:min-h-[56px] flex items-center mb-2 sm:mb-3"
                     >
                       <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
                         {c.ten}
@@ -216,7 +216,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
                       initial={{ opacity: 0, scale: 0.96, y: 10 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ duration: 0.35, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                      className="bg-cam text-trang -ml-5 sm:-ml-7 -mr-5 sm:-mr-7 px-5 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs"
+                      className="bg-cam text-trang -ml-6 sm:-ml-8 -mr-5 sm:-mr-7 px-5 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs"
                     >
                       {c.nguyenLieu.map((n) => (
                         <div key={n.ten} className="flex items-baseline justify-between gap-3">
@@ -250,12 +250,12 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
 
                 {/* Cột phải: Độ rượu + Hướng dẫn cách làm */}
                 <div className="flex flex-col pl-5 sm:pl-7">
-                  {/* Dòng Độ rượu */}
+                  {/* Dòng Độ rượu - Căn giữa theo chiều dọc khớp với cột trái */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
-                    className="h-9 sm:h-11 flex items-center justify-center mb-1 text-center"
+                    className="min-h-[48px] sm:min-h-[56px] flex items-center justify-center mb-2 sm:mb-3 text-center"
                   >
                     <span className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
                       {c.do}
