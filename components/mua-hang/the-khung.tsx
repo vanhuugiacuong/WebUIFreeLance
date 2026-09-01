@@ -7,12 +7,14 @@ import { cn } from "@/lib/utils";
  */
 export function TheKhung({
   mau = "kem",
-  doNet = 1.75,
+  doNet = 2.2,
+  banKinhGoc = 42,
   className,
   children,
 }: {
   mau?: "kem" | "cam";
   doNet?: number;
+  banKinhGoc?: number;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -20,8 +22,9 @@ export function TheKhung({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[28px] sm:rounded-[36px] shadow-sm transition-all duration-300",
-        "py-5 sm:py-7 lg:py-8 px-6 sm:px-10 lg:px-12",
+        "relative overflow-hidden rounded-[32px] sm:rounded-[44px] lg:rounded-[52px] shadow-sm transition-all duration-300",
+        "w-full max-w-[950px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]",
+        "py-10 sm:py-16 lg:py-20 px-8 sm:px-14 lg:px-20 flex flex-col justify-between",
         laCam ? "bg-cam text-kem" : "bg-[#fbf4ea] text-den",
         className
       )}
@@ -29,9 +32,10 @@ export function TheKhung({
       <KhungVien
         mau={laCam ? "var(--color-kem)" : "var(--color-cam)"}
         doNet={doNet}
-        className="inset-2.5 sm:inset-3 lg:inset-3.5"
+        banKinhGoc={banKinhGoc}
+        className="inset-4.5 sm:inset-6.5 lg:inset-8"
       />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 w-full flex-1 flex flex-col justify-center">{children}</div>
     </div>
   );
 }

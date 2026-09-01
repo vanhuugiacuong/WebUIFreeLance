@@ -33,7 +33,11 @@ function Truong({
     <label className="flex flex-col gap-2 group">
       <span className="text-base font-semibold text-cam transition-colors group-hover:text-cam/90">
         {nhan}
-        {batBuoc && <span className="ml-1 text-cam" aria-hidden>*</span>}
+        {batBuoc && (
+          <span className="ml-1 text-cam" aria-hidden>
+            *
+          </span>
+        )}
       </span>
       <span className="relative">
         {Icon && (
@@ -50,7 +54,7 @@ function Truong({
             "h-[52px] w-full rounded-2xl border border-cam/50 bg-trang text-base text-den shadow-xs",
             "placeholder:text-xam-nhat transition-all duration-300",
             "focus:border-cam focus:outline-none focus:ring-2 focus:ring-cam/25 focus:shadow-md",
-            Icon ? "pl-11 pr-5" : "px-5"
+            Icon ? "pl-11 pr-5" : "px-5",
           )}
         />
       </span>
@@ -75,7 +79,10 @@ function DongY({
       />
       <span>
         Bạn đã xác nhận và đồng ý với các{" "}
-        <span className="font-medium underline hover:text-cam transition-colors">chính sách bảo mật</span> của Miên
+        <span className="font-medium underline hover:text-cam transition-colors">
+          chính sách bảo mật
+        </span>{" "}
+        của Miên
       </span>
     </label>
   );
@@ -103,32 +110,34 @@ export function LuongDatHang() {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full flex-col items-center gap-8"
             >
-              <TheKhung className="w-full max-w-[760px]">
-                <h2 className="text-center font-display text-2xl sm:text-3xl font-bold uppercase text-cam tracking-wider mb-6 sm:mb-8">
+              <TheKhung className="w-full max-w-[950px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
+                {/* Part 1: Tiêu đề ở trên cùng */}
+                <h2 className="text-center font-display text-2xl sm:text-[33px] font-bold uppercase text-cam tracking-wider mb-6 sm:mb-8">
                   THÔNG TIN ĐƠN HÀNG
                 </h2>
 
-                <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-10">
-                  {/* Bức ảnh chai rượu hiển thị tự nhiên không khung hộp trắng */}
+                {/* Part 2: Dải sản phẩm (Chai rượu + Chi tiết) ở giữa */}
+                <div className="pt-10 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-10 lg:gap-12 my-auto">
                   <Image
                     src="/images/ruou-mien/hong-dao-2.webp"
                     alt="Rượu Hồng Đào"
                     width={110}
                     height={187}
                     priority
-                    className="h-[140px] sm:h-[160px] w-auto object-contain shrink-0 drop-shadow-sm"
+                    className="h-[140px] sm:h-[165px] w-auto object-contain shrink-0 drop-shadow-sm"
                   />
 
-                  <div className="flex-1 text-center sm:text-left max-w-[320px]">
-                    <h3 className="font-display text-lg sm:text-xl font-semibold uppercase text-cam tracking-wide">
+                  <div className="flex-1 text-center sm:text-left max-w-[340px]">
+                    <h3 className="font-display text-lg sm:text-xl font-semibold text-cam tracking-wide">
                       Rượu Hồng Đào
                     </h3>
-                    <p className="mt-2 text-sm sm:text-base text-den/80 font-normal">500ml</p>
+                    <p className="mt-2 text-sm sm:text-base text-den/80 font-normal">
+                      500ml
+                    </p>
                     <p className="mt-1 text-sm sm:text-base text-den/90 font-medium">
                       {soLuong} x {vnd(GIA)} VND
                     </p>
 
-                    {/* Bộ đếm số lượng 3 ô vuông rời + Nút Xóa viền cam */}
                     <div className="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-3">
                       <div className="flex items-center gap-1.5">
                         <button
@@ -163,20 +172,25 @@ export function LuongDatHang() {
                   </div>
                 </div>
 
-                {/* Khối tổng thanh toán nằm ở dưới bên phải khớp 100% screenshot Figma */}
-                <div className="mt-6 sm:mt-8 ml-auto w-full max-w-[440px]">
-                  <hr className="mb-4 border-t-[1.75px] border-cam/70" />
+                {/* Part 3: Khối thanh toán xuống hàng phía dưới: Số lượng -> Đường hr cam -> Tổng thanh toán */}
+                <div className="mt-14 sm:mt-20 lg:mt-24 mx-auto w-full max-w-[480px]">
+                  <div className="flex items-center justify-between text-sm sm:text-base mb-3">
+                    <span className="font-semibold text-cam">Số lượng</span>
+                    <span className="font-normal text-den/90">
+                      {soLuong} sản phẩm
+                    </span>
+                  </div>
 
-                  <dl className="space-y-3 text-sm sm:text-base">
-                    <div className="flex items-center justify-between">
-                      <dt className="font-semibold text-cam">Số lượng</dt>
-                      <dd className="font-normal text-den/90">{soLuong} sản phẩm</dd>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <dt className="font-semibold text-cam">Tổng thanh toán</dt>
-                      <dd className="font-semibold text-cam">{vnd(tong)} VND</dd>
-                    </div>
-                  </dl>
+                  <hr className="my-3 border-t-[1.75px] border-cam/70" />
+
+                  <div className="flex items-center justify-between text-sm sm:text-base mt-3">
+                    <span className="font-semibold text-cam">
+                      Tổng thanh toán
+                    </span>
+                    <span className="font-semibold text-cam">
+                      {vnd(tong)} VND
+                    </span>
+                  </div>
                 </div>
               </TheKhung>
 
@@ -210,17 +224,48 @@ export function LuongDatHang() {
                 if (dongY) setBuoc(3);
               }}
             >
-              <TheKhung className="w-full max-w-[840px]">
-                <h2 className="text-center font-display text-2xl sm:text-3xl lg:text-d3 font-bold uppercase text-cam tracking-wider mb-8 sm:mb-10">
+              <TheKhung className="w-full max-w-[950px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]">
+                <h2 className="text-center font-display text-2xl sm:text-3xl lg:text-[38px] font-bold uppercase text-cam tracking-wider mb-8 sm:mb-12">
                   THÔNG TIN GIAO HÀNG
                 </h2>
-                <div className="grid gap-x-12 gap-y-6 md:grid-cols-2">
-                  <Truong nhan="Họ tên" batBuoc placeholder="Nguyễn Minh A" icon={User} />
-                  <Truong nhan="Địa chỉ" batBuoc placeholder="120 Đường số 65, Tân Hưng, TP.HCM" icon={MapPin} />
-                  <Truong nhan="Số điện thoại" batBuoc placeholder="0905 678 999" type="tel" icon={Phone} />
-                  <Truong nhan="Thanh toán" batBuoc placeholder="Tiền mặt" icon={CreditCard} />
-                  <Truong nhan="Email" batBuoc placeholder="nguyenminha@gmail.com" type="email" icon={Mail} />
-                  <Truong nhan="Ghi chú" placeholder="Liên hệ trước khi giao" icon={Pencil} />
+                <div className="pt-10 grid gap-x-12 gap-y-6 md:grid-cols-2">
+                  <Truong
+                    nhan="Họ tên"
+                    batBuoc
+                    placeholder="Nguyễn Minh A"
+                    icon={User}
+                  />
+                  <Truong
+                    nhan="Địa chỉ"
+                    batBuoc
+                    placeholder="120 Đường số 65, Tân Hưng, TP.HCM"
+                    icon={MapPin}
+                  />
+                  <Truong
+                    nhan="Số điện thoại"
+                    batBuoc
+                    placeholder="0905 678 999"
+                    type="tel"
+                    icon={Phone}
+                  />
+                  <Truong
+                    nhan="Thanh toán"
+                    batBuoc
+                    placeholder="Tiền mặt"
+                    icon={CreditCard}
+                  />
+                  <Truong
+                    nhan="Email"
+                    batBuoc
+                    placeholder="nguyenminha@gmail.com"
+                    type="email"
+                    icon={Mail}
+                  />
+                  <Truong
+                    nhan="Ghi chú"
+                    placeholder="Liên hệ trước khi giao"
+                    icon={Pencil}
+                  />
                 </div>
               </TheKhung>
 
@@ -246,10 +291,10 @@ export function LuongDatHang() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full flex-col items-center gap-8"
             >
-              <div className="w-full max-w-[840px]">
+              <div className="w-full max-w-[950px]">
                 <TheThongBao
                   mau="cam"
-                  tieuDe="Bạn đã đặt hàng thành công"
+                  tieuDe="BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG"
                   moTa="Chúng tôi sẽ thông báo đến bạn thông tin đặt hàng qua số điện thoại đã cung cấp trong thời gian sớm nhất"
                 />
               </div>

@@ -1,68 +1,64 @@
+import Image from "next/image";
 import { TheKhung } from "@/components/mua-hang/the-khung";
 
-function Chevron({ len = false, mau }: { len?: boolean; mau: string }) {
-  return (
-    <svg
-      width="90"
-      height="44"
-      viewBox="0 0 90 44"
-      fill="none"
-      stroke={mau}
-      strokeWidth={4}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d={len ? "M8 36 L45 8 L82 36" : "M8 8 L45 36 L82 8"} />
-    </svg>
-  );
-}
-
 /**
- * Thẻ thông báo (đặt hàng / hủy đơn thành công): khung góc khuyết với hai mũi
- * chevron toả sáng ở trên và dưới, tiêu đề + mô tả canh giữa.
+ * Thẻ thông báo (đặt hàng / hủy đơn thành công): khung góc khuyết cam rực rỡ
+ * gắn trực tiếp hoạ tiết đính kèm từ thiết kế Figma (Top & Bottom Chevron Glow Asset).
  */
 export function TheThongBao({
-  mau,
-  tieuDe,
-  moTa,
+  mau = "cam",
+  tieuDe = "BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG",
+  moTa = "Chúng tôi sẽ thông báo đến bạn thông tin đặt hàng qua số điện thoại đã cung cấp trong thời gian sớm nhất",
 }: {
-  mau: "cam" | "kem";
-  tieuDe: string;
-  moTa: string;
+  mau?: "cam" | "kem";
+  tieuDe?: string;
+  moTa?: string;
 }) {
   const laCam = mau === "cam";
-  const glow = laCam ? "rgba(255,255,255,0.55)" : "color-mix(in srgb, var(--color-cam) 55%, transparent)";
-  const line = laCam ? "var(--color-kem)" : "var(--color-cam)";
-  const tieuDeMau = laCam ? "text-kem" : "text-cam";
+  const tieuDeMau = laCam ? "text-trang" : "text-cam";
+  const moTaMau = laCam ? "text-trang/95" : "text-den/80";
+
+  const anhTren = laCam
+    ? "/images/dong-tien-cat-nua-duoi.png"
+    : "/images/NỬA TIỀN CAM-30 1.png";
+  const anhDuoi = laCam
+    ? "/images/dong-tien-cat-nua-tren.png"
+    : "/images/NỬA TIỀN CAM-30 2.png";
 
   return (
-    <TheKhung mau={mau}>
-      <div className="relative flex min-h-[clamp(16rem,28vw,24rem)] flex-col items-center justify-center gap-4 py-12 text-center">
-        <span aria-hidden className="absolute left-1/2 top-0 grid -translate-x-1/2 place-items-center">
-          <span
-            className="col-start-1 row-start-1 size-40 rounded-full"
-            style={{ background: `radial-gradient(circle, ${glow} 0%, transparent 70%)` }}
-          />
-          <span className="col-start-1 row-start-1">
-            <Chevron mau={line} />
-          </span>
-        </span>
+    <TheKhung mau={mau} className="w-full max-w-[950px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
+      {/* Hoạ tiết đính kèm mép Trên (Top Edge Asset) - Sát chính xác viền KhungVien */}
+      <div aria-hidden className="absolute -top-[22px] sm:-top-[38px] lg:-top-[48px] left-1/2 -translate-x-1/2 pointer-events-none z-10 w-full max-w-[420px] flex justify-center">
+        <Image
+          src={anhTren}
+          alt="Hoạ tiết thành công trên"
+          width={420}
+          height={210}
+          priority
+          className="w-[280px] sm:w-[360px] lg:w-[420px] h-auto object-contain"
+        />
+      </div>
 
-        <h1 className={`font-display text-d3 font-bold uppercase leading-tight ${tieuDeMau}`}>
+      {/* Tiêu đề & Mô tả ở trung tâm - Căn giữa chuẩn UI */}
+      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 py-8 my-auto max-w-[580px] mx-auto space-y-4">
+        <h1 className={`font-display text-2xl sm:text-3xl lg:text-[38px] font-bold uppercase tracking-wider leading-tight ${tieuDeMau}`}>
           {tieuDe}
         </h1>
-        <p className="max-w-[440px] text-base leading-relaxed">{moTa}</p>
+        <p className={`text-base sm:text-lg leading-relaxed ${moTaMau}`}>
+          {moTa}
+        </p>
+      </div>
 
-        <span aria-hidden className="absolute bottom-0 left-1/2 grid -translate-x-1/2 place-items-center">
-          <span
-            className="col-start-1 row-start-1 size-40 rounded-full"
-            style={{ background: `radial-gradient(circle, ${glow} 0%, transparent 70%)` }}
-          />
-          <span className="col-start-1 row-start-1">
-            <Chevron len mau={line} />
-          </span>
-        </span>
+      {/* Hoạ tiết đính kèm mép Dưới (Bottom Edge Asset) - Sát chính xác viền KhungVien */}
+      <div aria-hidden className="absolute -bottom-[22px] sm:-bottom-[38px] lg:-bottom-[48px] left-1/2 -translate-x-1/2 pointer-events-none z-10 w-full max-w-[420px] flex justify-center">
+        <Image
+          src={anhDuoi}
+          alt="Hoạ tiết thành công dưới"
+          width={420}
+          height={210}
+          priority
+          className="w-[280px] sm:w-[360px] lg:w-[420px] h-auto object-contain"
+        />
       </div>
     </TheKhung>
   );
