@@ -9,7 +9,7 @@ export function PatternDivider({ className }: { className?: string }) {
       role="presentation"
       className={cn(
         "h-[clamp(2.5rem,6vw,5.5rem)] w-full bg-repeat-x",
-        className
+        className,
       )}
       style={{
         backgroundImage: "url('/svg/pattern%20cam-21%203.svg')",

@@ -17,14 +17,15 @@ export default function LienHe() {
       <div className="h-[66px] sm:h-[70px]" aria-hidden />
 
       {/* 2. Khoảng trống nền kem TRÊN banner */}
-      <div className="h-[clamp(2rem,4.5vw,4rem)]" aria-hidden />
+      <div className="h-20" aria-hidden />
 
       {/* 3. Banner chính Liên hệ */}
       <DaiLienHe />
 
-      <PatternDivider />
+      {/* 2. Khoảng trống nền kem TRÊN banner */}
+      <div className="h-40" aria-hidden />
+
       <NutGioHang />
     </>
   );
 }
-
