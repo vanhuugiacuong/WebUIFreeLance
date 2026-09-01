@@ -60,7 +60,6 @@
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
     background-color: var(--color-kem);
     @apply font-sans;
   }

@@ -57,8 +57,15 @@ export function SiteHeader() {
   const [daCuon, setDaCuon] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setDaCuon(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setDaCuon(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -80,10 +87,10 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 py-3.5 transition-all duration-300",
         daCuon
-          ? "bg-kem/95 py-3 backdrop-blur-md shadow-sm border-b border-cam/15"
-          : "bg-transparent py-4"
+          ? "bg-kem/95 backdrop-blur-md shadow-sm border-b border-cam/15"
+          : "bg-transparent"
       )}
     >
       <Container className="flex items-center justify-between lg:justify-center gap-4 sm:gap-6 lg:gap-8 xl:gap-14 2xl:gap-18">
