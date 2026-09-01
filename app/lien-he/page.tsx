@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { DaiLienHe } from "@/components/lien-he/dai-lien-he";
 import { PatternDivider } from "@/components/pattern-divider";
-import { QuatXoeAnimation } from "@/components/gioi-thieu/quat-xoe-animation";
 import { NutGioHang } from "@/components/nut-gio-hang";
 
 export const metadata: Metadata = {
@@ -23,10 +22,9 @@ export default function LienHe() {
       {/* 3. Banner chính Liên hệ */}
       <DaiLienHe />
 
-      {/* 4. Họa tiết quạt xòe Bài Chòi đặt trực tiếp đè lên dải hoa văn thổ cẩm sát Footer */}
-      <QuatXoeAnimation />
       <PatternDivider />
       <NutGioHang />
     </>
   );
 }
+
