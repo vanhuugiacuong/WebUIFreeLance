@@ -26,7 +26,7 @@ export function TheThongBao({
     : "/images/NỬA TIỀN CAM-30 2.png";
 
   return (
-    <TheKhung mau={mau} className="w-full max-w-[950px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
+    <TheKhung mau={mau} className="w-full max-w-[1040px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
       {/* Hoạ tiết đính kèm mép Trên (Top Edge Asset) - Sát chính xác viền KhungVien */}
       <div aria-hidden className="absolute -top-[22px] sm:-top-[38px] lg:-top-[48px] left-1/2 -translate-x-1/2 pointer-events-none z-10 w-full max-w-[420px] flex justify-center">
         <Image

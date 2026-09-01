@@ -32,24 +32,6 @@ export function PhanSanPhamRieng() {
   return (
     <section className="py-[clamp(2.5rem,5vw,4.5rem)] relative overflow-hidden">
       <Container className="relative">
-        {/* Nút chuyển sản phẩm Trước / Sau */}
-        <button
-          type="button"
-          onClick={truoc}
-          aria-label="Sản phẩm trước"
-          className="absolute -left-2 sm:-left-6 lg:-left-10 top-[220px] lg:top-[180px] z-20 size-10 sm:size-12 rounded-full bg-cam-nhat/30 text-cam flex items-center justify-center transition-all duration-300 hover:bg-cam hover:text-trang hover:scale-115 active:scale-95 hover:shadow-lg cursor-pointer backdrop-blur-xs outline-none focus:outline-none"
-        >
-          <ChevronLeft className="size-6 sm:size-7" strokeWidth={2.5} />
-        </button>
-        <button
-          type="button"
-          onClick={sau}
-          aria-label="Sản phẩm sau"
-          className="absolute -right-2 sm:-right-6 lg:-right-10 top-[220px] lg:top-[180px] z-20 size-10 sm:size-12 rounded-full bg-cam-nhat/30 text-cam flex items-center justify-center transition-all duration-300 hover:bg-cam hover:text-trang hover:scale-115 active:scale-95 hover:shadow-lg cursor-pointer backdrop-blur-xs outline-none focus:outline-none"
-        >
-          <ChevronRight className="size-6 sm:size-7" strokeWidth={2.5} />
-        </button>
-
         <AnimatePresence mode="wait">
           <motion.div
             key={sp.id}
@@ -60,7 +42,24 @@ export function PhanSanPhamRieng() {
             className="flex flex-col gap-16"
           >
             {/* Phân đoạn 1: Chi tiết sản phẩm */}
-            <div className="grid lg:grid-cols-[1fr_auto_auto] items-start gap-8 lg:gap-12 px-2 sm:px-6">
+            <div className="relative grid lg:grid-cols-[1fr_auto_auto] items-start gap-8 lg:gap-12 px-2 sm:px-6">
+              {/* Nút chuyển sản phẩm Trước / Sau căn giữa tuyệt đối theo chiều cao khối sản phẩm */}
+              <button
+                type="button"
+                onClick={truoc}
+                aria-label="Sản phẩm trước"
+                className="absolute -left-3 sm:-left-7 lg:-left-11 top-1/2 -translate-y-1/2 z-20 size-10 sm:size-12 rounded-full bg-cam-nhat/30 text-cam flex items-center justify-center transition-all duration-300 hover:bg-cam hover:text-trang hover:scale-115 active:scale-95 hover:shadow-lg cursor-pointer backdrop-blur-xs outline-none focus:outline-none"
+              >
+                <ChevronLeft className="size-6 sm:size-7" strokeWidth={2.5} />
+              </button>
+              <button
+                type="button"
+                onClick={sau}
+                aria-label="Sản phẩm sau"
+                className="absolute -right-3 sm:-right-7 lg:-right-11 top-1/2 -translate-y-1/2 z-20 size-10 sm:size-12 rounded-full bg-cam-nhat/30 text-cam flex items-center justify-center transition-all duration-300 hover:bg-cam hover:text-trang hover:scale-115 active:scale-95 hover:shadow-lg cursor-pointer backdrop-blur-xs outline-none focus:outline-none"
+              >
+                <ChevronRight className="size-6 sm:size-7" strokeWidth={2.5} />
+              </button>
               {/* Cột trái: Tên + Mô tả + Thẻ thành phần */}
               <div className="flex flex-col">
                 <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam leading-tight">

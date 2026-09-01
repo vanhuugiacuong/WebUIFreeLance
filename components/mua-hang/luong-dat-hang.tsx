@@ -110,7 +110,7 @@ export function LuongDatHang() {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full flex-col items-center gap-8"
             >
-              <TheKhung className="w-full max-w-[950px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
+              <TheKhung className="w-full max-w-[1040px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
                 {/* Part 1: Tiêu đề ở trên cùng */}
                 <h2 className="text-center font-display text-2xl sm:text-[33px] font-bold uppercase text-cam tracking-wider mb-6 sm:mb-8">
                   THÔNG TIN ĐƠN HÀNG
@@ -224,7 +224,7 @@ export function LuongDatHang() {
                 if (dongY) setBuoc(3);
               }}
             >
-              <TheKhung className="w-full max-w-[950px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]">
+              <TheKhung className="w-full max-w-[1040px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]">
                 <h2 className="text-center font-display text-2xl sm:text-3xl lg:text-[38px] font-bold uppercase text-cam tracking-wider mb-8 sm:mb-12">
                   THÔNG TIN GIAO HÀNG
                 </h2>
@@ -291,7 +291,7 @@ export function LuongDatHang() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full flex-col items-center gap-8"
             >
-              <div className="w-full max-w-[950px]">
+              <div className="w-full max-w-[1040px]">
                 <TheThongBao
                   mau="cam"
                   tieuDe="BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG"

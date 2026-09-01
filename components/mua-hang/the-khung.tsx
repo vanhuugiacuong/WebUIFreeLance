@@ -23,7 +23,7 @@ export function TheKhung({
     <div
       className={cn(
         "relative overflow-hidden rounded-[32px] sm:rounded-[44px] lg:rounded-[52px] shadow-sm transition-all duration-300",
-        "w-full max-w-[950px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]",
+        "w-full max-w-[1040px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]",
         "py-10 sm:py-16 lg:py-20 px-8 sm:px-14 lg:px-20 flex flex-col justify-between",
         laCam ? "bg-cam text-kem" : "bg-[#fbf4ea] text-den",
         className

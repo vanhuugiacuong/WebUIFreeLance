@@ -152,48 +152,49 @@ function KhungNguyenLieu() {
             WebkitMaskComposite: "destination-in",
           }}
         >
-          {/* Nút lướt Trái / Phải */}
-          <button
-            type="button"
-            onClick={doiTrang}
-            aria-label="Lướt sang trang trước"
-            className="absolute left-2 top-[42%] z-30 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-kem text-cam shadow-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer sm:left-4"
-          >
-            <ChevronLeft className="size-6" strokeWidth={2.5} />
-          </button>
-
-          <button
-            type="button"
-            onClick={doiTrang}
-            aria-label="Lướt sang trang tiếp"
-            className="absolute right-2 top-[42%] z-30 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-kem text-cam shadow-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer sm:right-4"
-          >
-            <ChevronRight className="size-6" strokeWidth={2.5} />
-          </button>
-
-          {/* Khung hiển thị ĐÚNG 3 NGUYÊN LIỆU trên 1 hàng */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={trangHienTai}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="grid grid-cols-3 gap-2 px-6 sm:gap-6 sm:px-12"
+          {/* Khung hiển thị 3 NGUYÊN LIỆU kèm 2 nút lướt căn giữa tuyệt đối 100% */}
+          <div className="relative px-6 sm:px-12">
+            <button
+              type="button"
+              onClick={doiTrang}
+              aria-label="Lướt sang trang trước"
+              className="absolute left-2 sm:left-4 top-1/2 z-30 grid size-10 sm:size-11 -translate-y-1/2 place-items-center rounded-full bg-kem text-cam shadow-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer"
             >
-              {TRANG_NGUYEN_LIEU[trangHienTai].danhSach.map((item) => (
-                <div
-                  key={item.ten + item.anh}
-                  className="flex flex-col items-center justify-between text-center group"
-                >
-                  <ChaiRuou src={item.anh} alt={item.alt} />
-                  <h3 className="mt-4 sm:mt-6 font-display text-xs sm:text-base lg:text-lg font-bold tracking-wider text-trang uppercase transition-transform duration-300 group-hover:scale-105">
-                    {item.ten}
-                  </h3>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+              <ChevronLeft className="size-6" strokeWidth={2.5} />
+            </button>
+
+            <button
+              type="button"
+              onClick={doiTrang}
+              aria-label="Lướt sang trang tiếp"
+              className="absolute right-2 sm:right-4 top-1/2 z-30 grid size-10 sm:size-11 -translate-y-1/2 place-items-center rounded-full bg-kem text-cam shadow-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer"
+            >
+              <ChevronRight className="size-6" strokeWidth={2.5} />
+            </button>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={trangHienTai}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="grid grid-cols-3 gap-2 sm:gap-6"
+              >
+                {TRANG_NGUYEN_LIEU[trangHienTai].danhSach.map((item) => (
+                  <div
+                    key={item.ten + item.anh}
+                    className="flex flex-col items-center justify-between text-center group"
+                  >
+                    <ChaiRuou src={item.anh} alt={item.alt} />
+                    <h3 className="mt-4 sm:mt-6 font-display text-xs sm:text-base lg:text-lg font-bold tracking-wider text-trang uppercase transition-transform duration-300 group-hover:scale-105">
+                      {item.ten}
+                    </h3>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* Họa tiết nan tre / thổ cẩm viền đáy */}
           <HoatTietThoCam />

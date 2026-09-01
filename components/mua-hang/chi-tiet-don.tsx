@@ -27,7 +27,7 @@ export function ChiTietDon() {
       <Container className="flex flex-col items-center gap-8">
         {daHuy ? (
           <>
-            <div className="w-full max-w-[840px]">
+            <div className="w-full max-w-[960px]">
               <TheThongBao
                 mau="kem"
                 tieuDe="Bạn đã hủy đặt hàng thành công"
@@ -40,7 +40,7 @@ export function ChiTietDon() {
           </>
         ) : (
           <>
-            <TheKhung className="w-full max-w-[840px]">
+            <TheKhung className="w-full max-w-[960px]">
               <p className="text-base">
                 Trạng thái: <span className="font-medium text-cam">Đã duyệt</span>
               </p>
