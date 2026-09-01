@@ -8,19 +8,19 @@ const GIA_TRI = [
     anh: "/images/gia-tri-nong-am.webp",
     ten: "Nồng ấm",
     mo_ta:
-      "Mỗi giọt rượu là sự giao hòa giữa đất, người và văn hóa. Mộc mạc nhưng tinh tế, đậm đà nhưng không cũ\u00A0kỹ.",
+      "Mỗi giọt rượu là sự giao hòa giữa đất, người và văn hóa. Mộc mạc nhưng tinh tế, đậm đà nhưng không cũ kỹ.",
   },
   {
     anh: "/images/gia-tri-ban-dia.webp",
     ten: "Bản địa",
     mo_ta:
-      "Miên đưa tinh thần Bài Chòi vào nhận diện, chắt lọc nét đặc trưng để kể câu chuyện văn hóa miền Trung theo cách\u00A0riêng.",
+      "Miên đưa tinh thần Bài Chòi vào nhận diện, chắt lọc nét đặc trưng để kể câu chuyện văn hóa miền Trung theo cách riêng.",
   },
   {
     anh: "/images/gia-tri-hien-dai.webp",
     ten: "Hiện đại",
     mo_ta:
-      "Miên chuyển hóa giá trị truyền thống bằng ngôn ngữ thiết kế đương đại, tối giản và linh hoạt, tạo nên cách tiếp cận gần\u00A0gũi.",
+      "Miên chuyển hóa giá trị truyền thống bằng ngôn ngữ thiết kế đương đại, tối giản và linh hoạt, tạo nên cách tiếp cận gần gũi.",
   },
 ];
 
