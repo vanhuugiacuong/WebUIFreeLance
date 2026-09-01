@@ -40,11 +40,11 @@ export function TheThongBao({
       </div>
 
       {/* Tiêu đề & Mô tả ở trung tâm - Căn giữa chuẩn UI */}
-      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 py-8 my-auto max-w-[580px] mx-auto space-y-4">
-        <h1 className={`font-display text-2xl sm:text-3xl lg:text-[38px] font-bold uppercase tracking-wider leading-tight ${tieuDeMau}`}>
+      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 py-8 my-auto max-w-[660px] mx-auto space-y-4">
+        <h1 className={`font-display text-2xl sm:text-3xl lg:text-[36px] font-bold uppercase tracking-wider leading-tight ${tieuDeMau}`}>
           {tieuDe}
         </h1>
-        <p className={`text-base sm:text-lg leading-relaxed ${moTaMau}`}>
+        <p className={`text-sm sm:text-base leading-relaxed text-balance ${moTaMau}`}>
           {moTa}
         </p>
       </div>

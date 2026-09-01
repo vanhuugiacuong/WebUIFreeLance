@@ -37,9 +37,11 @@ const SAN_PHAM = [
   },
 ];
 
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ChiTietSanPham() {
+  const router = useRouter();
   const [index, setIndex] = useState(0);
   const [soLuong, setSoLuong] = useState(1);
 
@@ -48,6 +50,21 @@ export function ChiTietSanPham() {
   const tang = () => setSoLuong((n) => n + 1);
   const truoc = () => setIndex((i) => (i === 0 ? SAN_PHAM.length - 1 : i - 1));
   const sau = () => setIndex((i) => (i === SAN_PHAM.length - 1 ? 0 : i + 1));
+
+  const handleThemVaoGio = () => {
+    const selected = {
+      id: sp.ten.toLowerCase().replace(/\s+/g, "-"),
+      ten: sp.ten,
+      dungTich: sp.dungTich,
+      gia: parseInt(sp.gia.replace(/\D/g, "")),
+      anhChai: sp.anh2,
+      soLuong: soLuong,
+    };
+    if (typeof window !== "undefined") {
+      localStorage.setItem("mien_san_pham_chon", JSON.stringify(selected));
+    }
+    router.push("/mua-hang");
+  };
 
   return (
     <section className="py-[clamp(2.5rem,5vw,4rem)]">
@@ -139,12 +156,13 @@ export function ChiTietSanPham() {
                       +
                     </button>
                   </div>
-                  <Link
-                    href="/mua-hang"
-                    className="inline-flex h-10 items-center rounded-[20px] bg-cam px-5 text-base text-trang transition-opacity hover:opacity-90"
+                  <button
+                    type="button"
+                    onClick={handleThemVaoGio}
+                    className="inline-flex h-10 items-center rounded-[20px] bg-cam px-5 text-base text-trang transition-opacity hover:opacity-90 cursor-pointer"
                   >
                     Thêm vào giỏ
-                  </Link>
+                  </button>
                 </div>
               </div>
 

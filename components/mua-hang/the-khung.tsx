@@ -9,12 +9,14 @@ export function TheKhung({
   mau = "kem",
   doNet = 2.2,
   banKinhGoc = 42,
+  insetClassName = "inset-6 sm:inset-9 lg:inset-12",
   className,
   children,
 }: {
   mau?: "kem" | "cam";
   doNet?: number;
   banKinhGoc?: number;
+  insetClassName?: string;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -24,7 +26,7 @@ export function TheKhung({
       className={cn(
         "relative overflow-hidden rounded-[32px] sm:rounded-[44px] lg:rounded-[52px] shadow-sm transition-all duration-300",
         "w-full max-w-[1040px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]",
-        "py-10 sm:py-16 lg:py-20 px-8 sm:px-14 lg:px-20 flex flex-col justify-between",
+        "py-12 sm:py-18 lg:py-24 px-10 sm:px-20 lg:px-28 flex flex-col justify-between",
         laCam ? "bg-cam text-kem" : "bg-[#fbf4ea] text-den",
         className
       )}
@@ -33,7 +35,7 @@ export function TheKhung({
         mau={laCam ? "var(--color-kem)" : "var(--color-cam)"}
         doNet={doNet}
         banKinhGoc={banKinhGoc}
-        className="inset-4.5 sm:inset-6.5 lg:inset-8"
+        className={cn("inset-4.5 sm:inset-6.5 lg:inset-8", insetClassName)}
       />
       <div className="relative z-10 w-full flex-1 flex flex-col justify-center">{children}</div>
     </div>

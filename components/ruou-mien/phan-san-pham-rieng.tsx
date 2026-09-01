@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -12,6 +12,7 @@ import { DANH_SACH_SAN_PHAM } from "./san-pham-data";
 import { ThanhThanhPhan } from "./thanh-thanh-phan";
 
 export function PhanSanPhamRieng() {
+  const router = useRouter();
   const [index, setIndex] = useState(0);
   const [soLuong, setSoLuong] = useState(1);
 
@@ -27,6 +28,21 @@ export function PhanSanPhamRieng() {
   const sau = () => {
     setIndex((i) => (i === DANH_SACH_SAN_PHAM.length - 1 ? 0 : i + 1));
     setSoLuong(1);
+  };
+
+  const handleThemVaoGio = () => {
+    const selected = {
+      id: sp.id,
+      ten: sp.ten,
+      dungTich: sp.dungTich,
+      gia: parseInt(sp.gia.replace(/\D/g, "")),
+      anhChai: sp.anhChai,
+      soLuong: soLuong,
+    };
+    if (typeof window !== "undefined") {
+      localStorage.setItem("mien_san_pham_chon", JSON.stringify(selected));
+    }
+    router.push("/mua-hang");
   };
 
   return (
@@ -65,7 +81,7 @@ export function PhanSanPhamRieng() {
                 <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam leading-tight">
                   {sp.ten}
                 </h2>
-                <p className="mt-4 text-justify text-sm sm:text-base leading-relaxed text-den/80 max-w-[500px]">
+                <p className="mt-6 text-justify text-sm sm:text-base leading-relaxed text-den/80 max-w-[500px]">
                   {sp.moTa}
                 </p>
                 <ThanhThanhPhan thanhPhan={sp.thanhPhan} className="mt-8" />
@@ -76,7 +92,7 @@ export function PhanSanPhamRieng() {
                 <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam leading-tight">
                   THÔNG TIN
                 </h3>
-                <dl className="mt-6 space-y-4 text-sm sm:text-base text-den/90">
+                <dl className="mt-6 space-y-4 text-sm sm:text-base leading-relaxed text-den/90">
                   <div>
                     <dt className="font-semibold text-den">Dung tích</dt>
                     <dd className="text-den/80">{sp.dungTich}</dd>
@@ -129,12 +145,13 @@ export function PhanSanPhamRieng() {
                     </button>
                   </div>
 
-                  <Link
-                    href="/mua-hang"
+                  <button
+                    type="button"
+                    onClick={handleThemVaoGio}
                     className="inline-flex h-10 items-center rounded-full bg-cam px-7 text-sm sm:text-base font-normal text-trang transition-all duration-300 hover:bg-cam/90 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer outline-none"
                   >
                     Thêm vào giỏ
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

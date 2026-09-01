@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { User, MapPin, Phone, CreditCard, Mail, Pencil } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,12 +21,16 @@ function Truong({
   batBuoc,
   placeholder,
   type = "text",
+  value,
+  onChange,
   icon: Icon,
 }: {
   nhan: string;
   batBuoc?: boolean;
   placeholder: string;
   type?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   icon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
 }) {
   return (
@@ -50,6 +54,8 @@ function Truong({
           type={type}
           placeholder={placeholder}
           required={batBuoc}
+          value={value}
+          onChange={onChange}
           className={cn(
             "h-[52px] w-full rounded-2xl border border-cam/50 bg-trang text-base text-den shadow-xs",
             "placeholder:text-xam-nhat transition-all duration-300",
@@ -90,9 +96,71 @@ function DongY({
 
 export function LuongDatHang() {
   const [buoc, setBuoc] = useState(1);
+  const [sanPham, setSanPham] = useState({
+    id: "hong-dao",
+    ten: "RƯỢU HỒNG ĐÀO",
+    dungTich: "500ml",
+    gia: 450000,
+    anhChai: "/images/ruou-mien/hong-dao-2.webp",
+  });
   const [soLuong, setSoLuong] = useState(1);
   const [dongY, setDongY] = useState(true);
-  const tong = soLuong * GIA;
+
+  // Form input state
+  const [hoTen, setHoTen] = useState("");
+  const [diaChi, setDiaChi] = useState("");
+  const [soDienThoai, setSoDienThoai] = useState("");
+  const [thanhToan, setThanhToan] = useState("Tiền mặt");
+  const [email, setEmail] = useState("");
+  const [ghiChu, setGhiChu] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("mien_san_pham_chon");
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          setSanPham({
+            id: parsed.id || "hong-dao",
+            ten: parsed.ten || "RƯỢU HỒNG ĐÀO",
+            dungTich: parsed.dungTich || "500ml",
+            gia: parsed.gia || 400000,
+            anhChai: parsed.anhChai || "/images/ruou-mien/hong-dao-2.webp",
+          });
+          if (parsed.soLuong) {
+            setSoLuong(parsed.soLuong);
+          }
+        } catch {
+          // ignore
+        }
+      }
+    }
+  }, []);
+
+  const tong = soLuong * sanPham.gia;
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (dongY) {
+      const donHangMoi = {
+        hoTen: hoTen || "Nguyễn Minh A",
+        soDienThoai: soDienThoai || "0905 678 999",
+        email: email || "nguyenminha@gmail.com",
+        diaChi: diaChi || "120 Đường số 65, Tân Hưng, TP.HCM",
+        thanhToan: thanhToan || "Tiền mặt",
+        ghiChu: ghiChu || "Liên hệ trước khi giao",
+        tenSanPham: sanPham.ten,
+        dungTich: sanPham.dungTich,
+        soLuong: soLuong,
+        tongTien: tong,
+        trangThai: "Đã duyệt",
+      };
+      if (typeof window !== "undefined") {
+        localStorage.setItem("mien_don_hang_cuoi", JSON.stringify(donHangMoi));
+      }
+      setBuoc(3);
+    }
+  };
 
   return (
     <section className="py-10 sm:py-14">
@@ -119,8 +187,8 @@ export function LuongDatHang() {
                 {/* Part 2: Dải sản phẩm (Chai rượu + Chi tiết) ở giữa */}
                 <div className="pl-20 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-10 lg:gap-12 my-auto">
                   <Image
-                    src="/images/ruou-mien/hong-dao-2.webp"
-                    alt="Rượu Hồng Đào"
+                    src={sanPham.anhChai}
+                    alt={sanPham.ten}
                     width={110}
                     height={187}
                     priority
@@ -129,13 +197,13 @@ export function LuongDatHang() {
 
                   <div className="flex-1 text-center sm:text-left max-w-[340px]">
                     <h3 className="font-display text-lg sm:text-xl font-semibold text-cam tracking-wide">
-                      Rượu Hồng Đào
+                      {sanPham.ten}
                     </h3>
                     <p className="mt-2 text-sm sm:text-base text-den/80 font-normal">
-                      500ml
+                      {sanPham.dungTich}
                     </p>
                     <p className="mt-1 text-sm sm:text-base text-den/90 font-medium">
-                      {soLuong} x {vnd(GIA)} VND
+                      {soLuong} x {vnd(sanPham.gia)} VND
                     </p>
 
                     <div className="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-3">
@@ -219,26 +287,27 @@ export function LuongDatHang() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full flex-col items-center gap-8"
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (dongY) setBuoc(3);
-              }}
+              onSubmit={handleFormSubmit}
             >
               <TheKhung className="w-full max-w-[1040px] min-h-[580px] sm:min-h-[680px] lg:min-h-[746px]">
                 <h2 className="text-center font-display text-2xl sm:text-3xl lg:text-[38px] font-bold uppercase text-cam tracking-wider mb-8 sm:mb-12">
                   THÔNG TIN GIAO HÀNG
                 </h2>
-                <div className="pt-10 grid gap-x-12 gap-y-6 md:grid-cols-2">
+                <div className=" pt-10 grid gap-x-12 gap-y-6 md:grid-cols-2">
                   <Truong
                     nhan="Họ tên"
                     batBuoc
                     placeholder="Nguyễn Minh A"
+                    value={hoTen}
+                    onChange={(e) => setHoTen(e.target.value)}
                     icon={User}
                   />
                   <Truong
                     nhan="Địa chỉ"
                     batBuoc
                     placeholder="120 Đường số 65, Tân Hưng, TP.HCM"
+                    value={diaChi}
+                    onChange={(e) => setDiaChi(e.target.value)}
                     icon={MapPin}
                   />
                   <Truong
@@ -246,12 +315,16 @@ export function LuongDatHang() {
                     batBuoc
                     placeholder="0905 678 999"
                     type="tel"
+                    value={soDienThoai}
+                    onChange={(e) => setSoDienThoai(e.target.value)}
                     icon={Phone}
                   />
                   <Truong
                     nhan="Thanh toán"
                     batBuoc
                     placeholder="Tiền mặt"
+                    value={thanhToan}
+                    onChange={(e) => setThanhToan(e.target.value)}
                     icon={CreditCard}
                   />
                   <Truong
@@ -259,11 +332,15 @@ export function LuongDatHang() {
                     batBuoc
                     placeholder="nguyenminha@gmail.com"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     icon={Mail}
                   />
                   <Truong
                     nhan="Ghi chú"
                     placeholder="Liên hệ trước khi giao"
+                    value={ghiChu}
+                    onChange={(e) => setGhiChu(e.target.value)}
                     icon={Pencil}
                   />
                 </div>
