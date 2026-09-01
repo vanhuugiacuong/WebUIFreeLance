@@ -48,7 +48,7 @@ function O({
           "focus:ring-2 focus:ring-trang/50",
           "focus:bg-trang",
           "focus:shadow-md",
-          Icon ? "pl-12 pr-5" : "px-6"
+          Icon ? "pl-12 pr-5" : "px-6",
         )}
       />
     </span>
@@ -104,29 +104,10 @@ export function DaiLienHe() {
             xl:w-[39%]
           "
         >
-          <Image
+          <img
             src="/images/lien-he/band.webp"
             alt="Ghé Miên giao"
-            width={934}
-            height={1160}
-            priority
-            className="
-              block
-              h-auto
-              w-full
-              object-cover
-              object-center
-
-              sm:h-[450px]
-
-              lg:absolute
-              lg:inset-0
-              lg:h-full
-              lg:w-full
-              lg:max-w-none
-              lg:object-cover
-              lg:object-left
-            "
+            className="w-full h-full object-cover object-center"
           />
 
           {/* =================================================
@@ -224,7 +205,7 @@ export function DaiLienHe() {
             >
               {noWidow(
                 "Đăng ký để không bỏ lỡ những men vị, trải nghiệm và cuộc hẹn mới nhất từ Miên.",
-                3
+                3,
               )}
             </p>
           </motion.div>
@@ -275,19 +256,12 @@ export function DaiLienHe() {
                   "
                 >
                   Họ tên
-                  <span
-                    className="ml-0.5 text-trang/80"
-                    aria-hidden
-                  >
+                  <span className="ml-0.5 text-trang/80" aria-hidden>
                     *
                   </span>
                 </span>
 
-                <O
-                  required
-                  icon={User}
-                  placeholder="Nguyễn Minh A"
-                />
+                <O required icon={User} placeholder="Nguyễn Minh A" />
               </label>
 
               <label className="flex flex-col gap-2">
@@ -302,10 +276,7 @@ export function DaiLienHe() {
                   "
                 >
                   Email
-                  <span
-                    className="ml-0.5 text-trang/80"
-                    aria-hidden
-                  >
+                  <span className="ml-0.5 text-trang/80" aria-hidden>
                     *
                   </span>
                 </span>
@@ -407,9 +378,7 @@ export function DaiLienHe() {
             >
               <CheckCircle2 className="size-6 shrink-0 text-cam" />
 
-              <span>
-                Cảm ơn bạn! Thông tin đã được gửi đến Miên.
-              </span>
+              <span>Cảm ơn bạn! Thông tin đã được gửi đến Miên.</span>
             </div>
           </motion.div>
         )}
