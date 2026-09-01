@@ -130,7 +130,7 @@ export default function VeChungToi() {
               Bài Chòi được Miên lựa chọn không chỉ bởi đây là một nét văn hóa đặc trưng của miền Trung, mà còn bởi tinh thần gặp gỡ, đối đáp và kết nối cộng đồng ẩn chứa bên trong loại hình nghệ thuật này.
             </p>
             <p className="mt-6 max-w-[840px] mx-auto text-left sm:text-justify text-sm sm:text-base leading-relaxed text-den/90">
-              Từ những quân bài, nhịp điệu đến cách mọi người cùng tham gia vào một cuộc chơi, tinh thần Bài Chòi được Miên chuyển hóa thành ngôn ngữ thiết kế và những trải nghiệm tương tác mới. Nhờ đó, văn hóa không chỉ xuất hiện để được nhìn ngắm, mà được chạm vào, trải nghiệm và tiếp tục kết nối trong đời sống.
+              Từ những quân bài, nhịp điệu đến cách mọi người cùng tham gia vào một cuộc chơi, tinh thần Bài Chòi được Miên chuyển hóa thành ngôn ngữ thiết kế và những trải nghiệm tương tác mới. Nhờ đó, văn hóa không chỉ xuất hiện để được nhìn ngắm, trải nghiệm và tiếp tục kết nối trong đời sống.
             </p>
 
             {/* 2 Khung ảnh Bài Chòi đồng bộ max-w-[840px] */}
