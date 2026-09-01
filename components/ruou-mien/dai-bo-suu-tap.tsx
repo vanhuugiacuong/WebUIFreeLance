@@ -44,15 +44,20 @@ export function DaiBoSuuTap() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 0.7,
+              delay: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mt-8 w-full max-w-[620px] text-left sm:text-justify text-sm sm:text-base leading-relaxed text-trang/95"
           >
-            Bộ sưu tập Miên quy tụ những men vị đặc trưng của miền Trung, mỗi dòng
-            rượu là một câu chuyện được kể từ vùng đất, nguyên liệu và nét văn hóa
-            nơi nó ra đời. Từ Hồng Đào xứ Quảng, Bàu Đá Bình Định đến Làng Chuồn
-            xứ Huế, Miên khoác lên những thức rượu quen thuộc một diện mạo đương
-            đại, để mỗi chai không chỉ mang một hương vị riêng mà còn là một phần
-            bản sắc miền Trung được trao gửi trong mỗi cuộc giao.
+            Bộ sưu tập Miên quy tụ những men vị đặc trưng của miền Trung, mỗi
+            dòng rượu là một câu chuyện được kể từ vùng đất, nguyên liệu và nét
+            văn hóa nơi nó ra đời. Từ Hồng Đào xứ Quảng, Bàu Đá Bình Định đến
+            Làng Chuồn xứ Huế, Miên khoác lên những thức rượu quen thuộc một
+            diện mạo đương đại, để mỗi chai không chỉ mang một hương vị riêng mà
+            còn là một phần bản sắc miền Trung được trao gửi trong mỗi cuộc
+            giao.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -60,10 +65,10 @@ export function DaiBoSuuTap() {
             transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 w-full max-w-[620px] text-left sm:text-justify text-sm sm:text-base leading-relaxed text-trang/95"
           >
-            Mỗi dòng rượu mang một cá tính riêng, nhưng cùng gặp nhau ở tinh thần
-            nồng hậu, giao đãi và kết nối. Miên mong rằng mỗi vị men được mở ra
-            cũng là lúc một cuộc gặp bắt đầu, một câu chuyện được sẻ chia và những
-            khoảng cách dần gần lại.
+            Mỗi dòng rượu mang một cá tính riêng, nhưng cùng gặp nhau ở tinh
+            thần nồng hậu, giao đãi và kết nối. Miên mong rằng mỗi vị men được
+            mở ra cũng là lúc một cuộc gặp bắt đầu, một câu chuyện được sẻ chia
+            và những khoảng cách dần gần lại.
           </motion.p>
         </div>
       </div>

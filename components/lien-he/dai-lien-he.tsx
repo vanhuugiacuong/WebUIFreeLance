@@ -2,29 +2,52 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { User, Mail } from "lucide-react";
+import { User, Mail, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { cn, noWidow } from "@/lib/utils";
 
-/** Ô nhập bo tròn nền kem, icon tuỳ chọn. */
+/** Ô input bo tròn nền kem */
 function O({
   icon: Icon,
   ...props
 }: React.InputHTMLAttributes<HTMLInputElement> & {
-  icon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon?: React.ComponentType<{
+    className?: string;
+    strokeWidth?: number;
+  }>;
 }) {
   return (
-    <span className="relative block">
+    <span className="relative block group">
       {Icon && (
         <Icon
-          className="pointer-events-none absolute left-4 top-1/2 size-6 -translate-y-1/2 text-xam"
-          strokeWidth={1.75}
+          className="
+            pointer-events-none
+            absolute
+            left-4.5
+            top-1/2
+            size-5
+            -translate-y-1/2
+            text-cam/60
+            transition-colors
+            group-focus-within:text-cam
+          "
+          strokeWidth={1.8}
         />
       )}
+
       <input
         {...props}
         className={cn(
-          "h-[55px] w-full rounded-full bg-kem text-base text-den placeholder:text-xam-nhat focus:outline-none focus:ring-2 focus:ring-den/20",
+          "h-[54px] w-full rounded-full bg-[#fbf4ea]",
+          "text-base text-den font-medium",
+          "placeholder:text-den/40",
+          "transition-all duration-300",
+          "shadow-xs",
+          "focus:outline-none",
+          "focus:ring-2 focus:ring-trang/50",
+          "focus:bg-trang",
+          "focus:shadow-md",
           Icon ? "pl-12 pr-5" : "px-6"
         )}
       />
@@ -33,82 +56,360 @@ function O({
 }
 
 /**
- * Dải cam trang Liên hệ: ảnh vuông tràn mép trái hoà vào nền cam, bên phải là
- * form đăng ký nhận tin (Họ tên + Email + nút Gửi). Chỉ dựng giao diện.
+ * Dải liên hệ
+ *
+ * Layout desktop:
+ * ┌──────────────────────┬──────────────────────────────────┐
+ * │                      │                                  │
+ * │       IMAGE          │             FORM                 │
+ * │       40%            │             60%                  │
+ * │                      │                                  │
+ * └──────────────────────┴──────────────────────────────────┘
+ *
+ * Image luôn bám sát mép trái của section.
  */
-import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
-
 export function DaiLienHe() {
   const [daGui, setDaGui] = useState(false);
 
   return (
-    <section className="bg-cam text-kem relative">
-      <div className="grid lg:grid-cols-[minmax(0,34%)_minmax(0,66%)]">
-        <div className="relative aspect-[16/10] lg:aspect-auto">
+    <section className="w-full overflow-hidden bg-cam text-trang">
+      <div
+        className="
+          relative
+          flex
+          w-full
+          flex-col
+          lg:min-h-[540px]
+          xl:min-h-[580px]
+          lg:flex-row
+        "
+      >
+        {/* =====================================================
+            LEFT — IMAGE
+            ===================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            relative
+            w-full
+            shrink-0
+            overflow-hidden
+            lg:w-[40%]
+            xl:w-[39%]
+          "
+        >
           <Image
             src="/images/lien-he/band.webp"
             alt="Ghé Miên giao"
-            fill
-            sizes="(max-width: 1024px) 100vw, 38vw"
-            className="object-cover"
+            width={934}
+            height={1160}
+            priority
+            className="
+              block
+              h-auto
+              w-full
+              object-cover
+              object-center
+
+              sm:h-[450px]
+
+              lg:absolute
+              lg:inset-0
+              lg:h-full
+              lg:w-full
+              lg:max-w-none
+              lg:object-cover
+              lg:object-left
+            "
           />
-          <div className="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-cam lg:block" />
-        </div>
 
-        <div className="flex flex-col justify-center gap-7 px-6 py-[clamp(2.5rem,5vw,4.5rem)] lg:pl-4 lg:pr-[clamp(2rem,6vw,6rem)]">
-          <div>
-            <h1 className="font-display text-d3 font-semibold leading-tight">
-              Có chuyện, ghé Miên giao?
+          {/* =================================================
+              FADE IMAGE → CAM
+              
+              Chỉ đặt overlay ở mép phải image.
+              Không tạo thêm một column.
+          ================================================= */}
+
+          <div
+            aria-hidden
+            className="
+              pointer-events-none
+              absolute
+              inset-y-0
+              right-0
+              z-10
+              hidden
+              w-[80px]
+              bg-gradient-to-l
+              from-cam
+              via-cam/40
+              to-transparent
+              lg:block
+              xl:w-[110px]
+            "
+          />
+        </motion.div>
+
+        {/* =====================================================
+            RIGHT — CONTENT / FORM
+            ===================================================== */}
+
+        <div
+          className="
+            flex
+            min-w-0
+            flex-1
+            flex-col
+            justify-center
+
+            px-6
+            py-12
+
+            sm:px-10
+            sm:py-14
+
+            lg:px-12
+            lg:py-16
+
+            xl:px-16
+            xl:py-20
+          "
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="w-full"
+          >
+            <h1
+              className="
+                font-display
+                text-2xl
+                font-bold
+                uppercase
+                leading-tight
+                tracking-wider
+                text-trang
+
+                sm:text-3xl
+
+                lg:text-[38px]
+              "
+            >
+              CÓ CHUYỆN, GHÉ MIÊN GIAO?
             </h1>
-            <p className="mt-3 max-w-[612px] text-lg font-medium leading-relaxed">
-              {noWidow("Đăng ký để không bỏ lỡ những men vị, trải nghiệm và cuộc hẹn mới nhất từ Miên.", 3)}
-            </p>
-          </div>
 
-          <form
-            className="flex flex-col items-center gap-6"
+            <p
+              className="
+                mt-3
+                max-w-[612px]
+                text-base
+                font-normal
+                leading-relaxed
+                text-trang/95
+
+                sm:mt-4
+                sm:text-lg
+              "
+            >
+              {noWidow(
+                "Đăng ký để không bỏ lỡ những men vị, trải nghiệm và cuộc hẹn mới nhất từ Miên.",
+                3
+              )}
+            </p>
+          </motion.div>
+
+          {/* =================================================
+              FORM
+          ================================================= */}
+
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              mt-8
+              flex
+              w-full
+              max-w-[680px]
+              flex-col
+              items-start
+              gap-6
+            "
             onSubmit={(e) => {
               e.preventDefault();
+
               setDaGui(true);
-              setTimeout(() => setDaGui(false), 4000);
+
+              setTimeout(() => {
+                setDaGui(false);
+              }, 4000);
             }}
           >
-            <div className="grid w-full max-w-[620px] gap-5 sm:grid-cols-2">
+            {/* INPUTS */}
+
+            <div className="grid w-full gap-5 sm:grid-cols-2">
               <label className="flex flex-col gap-2">
-                <span className="text-lg font-medium">
-                  Họ tên<span aria-hidden>*</span>
+                <span
+                  className="
+                    text-base
+                    font-semibold
+                    tracking-wide
+                    text-trang
+
+                    sm:text-lg
+                  "
+                >
+                  Họ tên
+                  <span
+                    className="ml-0.5 text-trang/80"
+                    aria-hidden
+                  >
+                    *
+                  </span>
                 </span>
-                <O required icon={User} placeholder="Nguyễn Minh A" />
+
+                <O
+                  required
+                  icon={User}
+                  placeholder="Nguyễn Minh A"
+                />
               </label>
+
               <label className="flex flex-col gap-2">
-                <span className="text-lg font-medium">
-                  Email<span aria-hidden>*</span>
+                <span
+                  className="
+                    text-base
+                    font-semibold
+                    tracking-wide
+                    text-trang
+
+                    sm:text-lg
+                  "
+                >
+                  Email
+                  <span
+                    className="ml-0.5 text-trang/80"
+                    aria-hidden
+                  >
+                    *
+                  </span>
                 </span>
-                <O required type="email" icon={Mail} placeholder="nguyenminha@gmail.com" />
+
+                <O
+                  required
+                  type="email"
+                  icon={Mail}
+                  placeholder="nguyenminha@gmail.com"
+                />
               </label>
             </div>
+
+            {/* BUTTON */}
+
             <button
               type="submit"
-              className="h-[55px] w-full max-w-[294px] rounded-full bg-kem text-base font-semibold text-cam transition-opacity hover:opacity-90 cursor-pointer shadow-md"
+              className="
+                mt-2
+                h-[52px]
+                w-full
+                max-w-[280px]
+                cursor-pointer
+                rounded-full
+                bg-[#fbf4ea]
+                text-base
+                font-bold
+                uppercase
+                tracking-wider
+                text-cam
+                shadow-md
+                outline-none
+                transition-all
+                duration-300
+
+                hover:scale-105
+                hover:bg-trang
+                hover:shadow-xl
+
+                active:scale-95
+              "
             >
               {daGui ? "Đã gửi thông tin" : "Gửi"}
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
+
+      {/* =======================================================
+          SUCCESS TOAST
+      ======================================================= */}
 
       <AnimatePresence>
         {daGui && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="toast toast-end toast-bottom z-[100] p-6"
+            initial={{
+              opacity: 0,
+              y: 30,
+              scale: 0.9,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+              scale: 0.9,
+            }}
+            transition={{
+              duration: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              fixed
+              bottom-6
+              right-6
+              z-[100]
+              p-4
+            "
           >
-            <div className="alert alert-success bg-kem text-cam font-medium shadow-xl border border-cam/20 flex items-center gap-3 px-5 py-3.5 rounded-2xl">
-              <CheckCircle2 className="size-6 text-cam" />
-              <span>Cảm ơn bạn! Thông tin đã được gửi đến Miên.</span>
+            <div
+              className="
+                flex
+                items-center
+                gap-3
+                rounded-2xl
+                border
+                border-cam/20
+                bg-[#fbf4ea]
+                px-6
+                py-4
+                text-base
+                font-semibold
+                text-cam
+                shadow-2xl
+              "
+            >
+              <CheckCircle2 className="size-6 shrink-0 text-cam" />
+
+              <span>
+                Cảm ơn bạn! Thông tin đã được gửi đến Miên.
+              </span>
             </div>
           </motion.div>
         )}
