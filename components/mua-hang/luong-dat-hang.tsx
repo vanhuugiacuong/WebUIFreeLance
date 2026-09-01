@@ -112,12 +112,12 @@ export function LuongDatHang() {
             >
               <TheKhung className="w-full max-w-[1040px] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px]">
                 {/* Part 1: Tiêu đề ở trên cùng */}
-                <h2 className="text-center font-display text-2xl sm:text-[33px] font-bold uppercase text-cam tracking-wider mb-6 sm:mb-8">
+                <h2 className="mt-12 text-center font-display text-2xl sm:text-[33px] font-bold uppercase text-cam tracking-wider mb-6 sm:mb-8">
                   THÔNG TIN ĐƠN HÀNG
                 </h2>
 
                 {/* Part 2: Dải sản phẩm (Chai rượu + Chi tiết) ở giữa */}
-                <div className="pt-10 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-10 lg:gap-12 my-auto">
+                <div className="pl-20 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 sm:gap-10 lg:gap-12 my-auto">
                   <Image
                     src="/images/ruou-mien/hong-dao-2.webp"
                     alt="Rượu Hồng Đào"
@@ -173,7 +173,7 @@ export function LuongDatHang() {
                 </div>
 
                 {/* Part 3: Khối thanh toán xuống hàng phía dưới: Số lượng -> Đường hr cam -> Tổng thanh toán */}
-                <div className="mt-14 sm:mt-20 lg:mt-24 mx-auto w-full max-w-[480px]">
+                <div className="mb-10 mx-auto w-full max-w-[480px]">
                   <div className="flex items-center justify-between text-sm sm:text-base mb-3">
                     <span className="font-semibold text-cam">Số lượng</span>
                     <span className="font-normal text-den/90">
