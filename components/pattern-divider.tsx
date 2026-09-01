@@ -12,7 +12,7 @@ export function PatternDivider({ className }: { className?: string }) {
         className
       )}
       style={{
-        backgroundImage: `url('${encodeURI("/svg/khung nguyên liệu (2).svg")}')`,
+        backgroundImage: "url('/svg/pattern%20cam-21%203.svg')",
         backgroundSize: "auto 100%",
         backgroundPosition: "center",
       }}
