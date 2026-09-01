@@ -20,17 +20,31 @@
   --font-display: var(--font-phudu), ui-serif, Georgia, serif;
   --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 
-  /* ---- Thang chu (do tu Figma) ---- */
+  /* ---- Thang chu (Chuan Figma) ---- */
+  --text-body-s: 1rem;            /* 16px - Body text S (16/24) */
+  --text-body-s--line-height: 1.5; /* 24px */
+  --text-body-m: 1.25rem;         /* 20px - Body text M (20/Auto) */
+  --text-body-m--line-height: 1.35;
+
+  --text-headline-s: 2.0625rem;   /* 33px - Headline S (33/39.6) */
+  --text-headline-s--line-height: 1.2; /* 39.6px */
+  --text-headline-m: 2.5rem;      /* 40px - Headline M (40/50) */
+  --text-headline-m--line-height: 1.25; /* 50px */
+  --text-headline-l: 4rem;        /* 64px - Headline L / Display (64/Auto) */
+  --text-headline-l--line-height: 1.15;
+  --text-display-m: 8rem;         /* 128px - Display M (128/Auto) */
+  --text-display-m--line-height: 1.05;
+
   --text-d1: 4rem;          /* 64px - tieu de hero */
   --text-d1--line-height: 1.203;
   --text-d2: 2.5rem;        /* 40px - tieu de section */
   --text-d2--line-height: 1.25;
   --text-d3: 2.0625rem;     /* 33px */
-  --text-d3--line-height: 1.212;
+  --text-d3--line-height: 1.2;
   --text-d4: 2rem;          /* 32px */
   --text-d4--line-height: 0.906;
   --text-lg: 1.25rem;       /* 20px */
-  --text-lg--line-height: 1.2;
+  --text-lg--line-height: 1.35;
   --text-base: 1rem;        /* 16px - chu chinh */
   --text-base--line-height: 1.5;
   --text-sm: 0.875rem;      /* 14px */
@@ -56,6 +70,13 @@
   body {
     background-color: var(--color-kem);
     @apply text-foreground font-sans min-h-screen;
+  }
+  /* Quy tac toan cuc chong chu mo coi (widow words) */
+  p, li, dd, dt {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
   }
   ::selection {
     background-color: var(--color-cam);

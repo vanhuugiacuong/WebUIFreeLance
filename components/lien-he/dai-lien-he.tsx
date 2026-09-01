@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { User, Mail } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, noWidow } from "@/lib/utils";
 
 /** Ô nhập bo tròn nền kem, icon tuỳ chọn. */
 function O({
@@ -62,8 +62,7 @@ export function DaiLienHe() {
               Có chuyện, ghé Miên giao?
             </h1>
             <p className="mt-3 max-w-[612px] text-lg font-medium leading-relaxed">
-              Đăng ký để không bỏ lỡ những men vị, trải nghiệm và cuộc hẹn mới
-              nhất từ Miên.
+              {noWidow("Đăng ký để không bỏ lỡ những men vị, trải nghiệm và cuộc hẹn mới nhất từ Miên.", 3)}
             </p>
           </div>
 

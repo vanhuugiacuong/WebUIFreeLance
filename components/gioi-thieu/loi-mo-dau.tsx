@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/fade-in";
+import { noWidow } from "@/lib/utils";
 
 export function LoiMoDau() {
   return (
@@ -30,18 +31,11 @@ export function LoiMoDau() {
             </h2>
 
             <p className="mt-7 sm:mt-8 w-full text-sm sm:text-base leading-relaxed text-trang/95 text-justify">
-              Bị cuốn hút bởi chiều sâu văn hóa và hương vị nồng ấm của những
-              dòng rượu truyền thống Việt Nam, chúng tôi khát khao tạo nên một
-              thương hiệu rượu bản địa mang tầm vóc đương đại.
+              {noWidow("Bị cuốn hút bởi chiều sâu văn hóa và hương vị nồng ấm của những dòng rượu truyền thống Việt Nam, chúng tôi khát khao tạo nên một thương hiệu rượu bản địa mang tầm vóc đương đại.", 3)}
             </p>
 
             <p className="mt-5 sm:mt-6 w-full text-sm sm:text-base leading-relaxed text-trang/95 text-justify">
-              Hành trình tìm kiếm những nguyên liệu thuần khiết nhất bắt đầu từ
-              những cánh đồng nếp đơm bông đẫm sương mai, đưa chúng tôi đi dọc
-              dải đất miền Trung nắng gió. Với Miên, rượu không chỉ là thức
-              uống. Đó còn là một phần của những cuộc gặp, những lời mời, lời
-              chúc và những câu chuyện được mở ra khi mọi người ngồi lại cùng{" "}
-              <span className="whitespace-nowrap">nhau.</span>
+              {noWidow("Hành trình tìm kiếm những nguyên liệu thuần khiết nhất bắt đầu từ những cánh đồng nếp đơm bông đẫm sương mai, đưa chúng tôi đi dọc dải đất miền Trung nắng gió. Với Miên, rượu không chỉ là thức uống. Đó còn là một phần của những cuộc gặp, những lời mời, lời chúc và những câu chuyện được mở ra khi mọi người ngồi lại cùng nhau.", 3)}
             </p>
           </FadeIn>
         </div>

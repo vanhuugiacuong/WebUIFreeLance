@@ -10,6 +10,7 @@ import { HoaTietKimCuong } from "@/components/hoa-tiet-kim-cuong";
 import { NutGioHang } from "@/components/nut-gio-hang";
 import { FadeIn } from "@/components/ui/fade-in";
 import { QuatXoeAnimation } from "@/components/gioi-thieu/quat-xoe-animation";
+import { noWidow } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Về chúng tôi",
@@ -43,16 +44,10 @@ export default function VeChungToi() {
             </h2>
             <div className="mt-8 grid gap-8 sm:grid-cols-2 text-justify sm:text-left max-w-[1000px] mx-auto text-sm sm:text-base leading-relaxed text-den">
               <p>
-                Miên hướng đến trở thành một thương hiệu rượu miền Trung mang
-                tinh thần Việt trong diện mạo đương đại, nơi những giá trị bản
-                địa không chỉ được gìn giữ mà còn được kể lại theo cách gần gũi
-                hơn với thế hệ hôm nay.
+                {noWidow("Miên hướng đến trở thành một thương hiệu rượu miền Trung mang tinh thần Việt trong diện mạo đương đại, nơi những giá trị bản địa không chỉ được gìn giữ mà còn được kể lại theo cách gần gũi hơn với thế hệ hôm nay.", 3)}
               </p>
               <p>
-                Miên đưa những thức rượu đặc trưng của miền Trung đến gần hơn
-                với khách hàng thông qua sản phẩm chỉn chu, giàu bản sắc. Qua
-                đó, mỗi chai rượu không chỉ mang một hương vị, mà còn mang theo
-                câu chuyện về vùng đất và con người nơi nó được sinh ra.
+                {noWidow("Miên đưa những thức rượu đặc trưng của miền Trung đến gần hơn với khách hàng thông qua sản phẩm chỉn chu, giàu bản sắc. Qua đó, mỗi chai rượu không chỉ mang một hương vị, mà còn mang theo câu chuyện về vùng đất và con người nơi nó được sinh ra.", 3)}
               </p>
             </div>
 
@@ -89,16 +84,10 @@ export default function VeChungToi() {
               KHI RƯỢU THÀNH SỢI DÂY KẾT NỐI
             </h2>
             <p className="mt-8 max-w-[840px] mx-auto text-center text-sm sm:text-base leading-relaxed text-den/90">
-              Có những cuộc gặp bắt đầu bằng một lời mời, những câu chuyện được
-              mở ra bên một chén rượu và những tình cảm được trao đi qua một món
-              quà.
+              {noWidow("Có những cuộc gặp bắt đầu bằng một lời mời, những câu chuyện được mở ra bên một chén rượu và những tình cảm được trao đi qua một món quà.", 3)}
             </p>
             <p className="mt-6 max-w-[840px] mx-auto text-left sm:text-justify text-sm sm:text-base leading-relaxed text-den/90">
-              Với Miên, rượu không chỉ để thưởng thức. Đó còn là chất xúc tác
-              đưa con người đến gần nhau hơn trong cuộc vui giữa bạn bè, một lần
-              gặp gỡ, một lời chúc hay món quà được trao bằng sự trân trọng. Bởi
-              điều Miên muốn lưu lại sau mỗi vị men không chỉ là dư vị, mà còn
-              là dư âm của một cuộc giao.
+              {noWidow("Với Miên, rượu không chỉ để thưởng thức. Đó còn là chất xúc tác đưa con người đến gần nhau hơn trong cuộc vui giữa bạn bè, một lần gặp gỡ, một lời chúc hay món quà được trao bằng sự trân trọng. Bởi điều Miên muốn lưu lại sau mỗi vị men không chỉ là dư vị, mà còn là dư âm của một cuộc giao.", 3)}
             </p>
 
             {/* 2 Khung ảnh kết nối đồng bộ chiều cao theo ảnh bên phải (aspect-[640/882]) */}
@@ -136,16 +125,10 @@ export default function VeChungToi() {
               BÀI CHÒI CÙNG MIÊN
             </h2>
             <p className="mt-8 max-w-[840px] mx-auto text-center text-sm sm:text-base leading-relaxed text-den/90">
-              Bài Chòi được Miên lựa chọn không chỉ bởi đây là một nét văn hóa
-              đặc trưng của miền Trung, mà còn bởi tinh thần gặp gỡ, đối đáp và
-              kết nối cộng đồng ẩn chứa bên trong loại hình nghệ thuật này.
+              {noWidow("Bài Chòi được Miên lựa chọn không chỉ bởi đây là một nét văn hóa đặc trưng của miền Trung, mà còn bởi tinh thần gặp gỡ, đối đáp và kết nối cộng đồng ẩn chứa bên trong loại hình nghệ thuật này.", 3)}
             </p>
             <p className="mt-6 max-w-[840px] mx-auto text-left sm:text-justify text-sm sm:text-base leading-relaxed text-den/90">
-              Từ những quân bài, nhịp điệu đến cách mọi người cùng tham gia vào
-              một cuộc chơi, tinh thần Bài Chòi được Miên chuyển hóa thành ngôn
-              ngữ thiết kế và những trải nghiệm tương tác mới. Nhờ đó, văn hóa
-              không chỉ xuất hiện để được nhìn ngắm, mà được chạm vào, trải
-              nghiệm và tiếp tục kết nối trong đời sống.
+              {noWidow("Từ những quân bài, nhịp điệu đến cách mọi người cùng tham gia vào một cuộc chơi, tinh thần Bài Chòi được Miên chuyển hóa thành ngôn ngữ thiết kế và những trải nghiệm tương tác mới. Nhờ đó, văn hóa không chỉ xuất hiện để được nhìn ngắm, mà được chạm vào, trải nghiệm và tiếp tục kết nối trong đời sống.", 3)}
             </p>
 
             {/* 2 Khung ảnh Bài Chòi đồng bộ 100% chiều cao bằng aspect-square */}
@@ -181,12 +164,7 @@ export default function VeChungToi() {
               ĐỘI NGŨ MIÊN
             </h2>
             <p className="mt-8 max-w-[840px] mx-auto text-center text-sm sm:text-base leading-relaxed text-den/90">
-              Đằng sau mỗi trải nghiệm tại Miên là những người cùng chung sự
-              trân trọng dành cho men vị và văn hóa miền Trung. Không chỉ am
-              hiểu sản phẩm, đội ngũ Miên luôn đề cao sự nồng hậu, tinh tế và
-              gần gũi trong từng cách đón tiếp, tư vấn và sẻ chia câu chuyện.
-              Bởi với Miên, mỗi vị khách ghé đến không đơn thuần để chọn một
-              chai rượu, mà còn để bắt đầu một cuộc giao.
+              {noWidow("Đằng sau mỗi trải nghiệm tại Miên là những người cùng chung sự trân trọng dành cho men vị và văn hóa miền Trung. Không chỉ am hiểu sản phẩm, đội ngũ Miên luôn đề cao sự nồng hậu, tinh tế và gần gũi trong từng cách đón tiếp, tư vấn và sẻ chia câu chuyện. Bởi với Miên, mỗi vị khách ghé đến không đơn thuần để chọn một chai rượu, mà còn để bắt đầu một cuộc giao.", 3)}
             </p>
 
             {/* 2 Khung ảnh đội ngũ phẳng chữ nhật */}

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
  */
 export function KhungVien({
   mau = "var(--color-cam)",
-  doNet = 1,
+  doNet = 1.75,
   className,
 }: {
   mau?: string;

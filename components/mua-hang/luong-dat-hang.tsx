@@ -165,7 +165,7 @@ export function LuongDatHang() {
 
                 {/* Khối tổng thanh toán nằm ở dưới bên phải khớp 100% screenshot Figma */}
                 <div className="mt-6 sm:mt-8 ml-auto w-full max-w-[440px]">
-                  <hr className="mb-4 border-t border-cam/40" />
+                  <hr className="mb-4 border-t-[1.75px] border-cam/70" />
 
                   <dl className="space-y-3 text-sm sm:text-base">
                     <div className="flex items-center justify-between">

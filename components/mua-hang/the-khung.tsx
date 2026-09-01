@@ -7,10 +7,12 @@ import { cn } from "@/lib/utils";
  */
 export function TheKhung({
   mau = "kem",
+  doNet = 1.75,
   className,
   children,
 }: {
   mau?: "kem" | "cam";
+  doNet?: number;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -26,7 +28,7 @@ export function TheKhung({
     >
       <KhungVien
         mau={laCam ? "var(--color-kem)" : "var(--color-cam)"}
-        doNet={1}
+        doNet={doNet}
         className="inset-2.5 sm:inset-3 lg:inset-3.5"
       />
       <div className="relative z-10">{children}</div>

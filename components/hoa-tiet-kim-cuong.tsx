@@ -12,23 +12,52 @@ const THOI = { clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" };
  */
 export function HoaTietKimCuong({
   className,
-  mauHo = "bg-kem",
+  mauHo = "bg-trang",
+  mauVien = "bg-trang",
 }: {
   className?: string;
   mauHo?: string;
+  mauVien?: string;
 }) {
   return (
-    <span aria-hidden className={cn("relative grid aspect-square place-items-center", className)}>
+    <span
+      aria-hidden
+      className={cn(
+        "relative grid aspect-square place-items-center",
+        className,
+      )}
+    >
+      {/* Glow ngoài */}
       <span
-        className="absolute inset-0 rounded-full"
+        className="absolute inset-[-25%] rounded-full pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(circle, var(--color-cam) 0%, color-mix(in srgb, var(--color-cam) 88%, transparent) 42%, transparent 74%)",
+            "radial-gradient(circle at center, rgba(255, 70, 35, 0.55) 0%, rgba(255, 70, 35, 0.25) 45%, transparent 75%)",
+          filter: "blur(22px)",
         }}
       />
-      <span className={cn("absolute size-[45%]", mauHo)} style={THOI} />
-      <span className="absolute size-[38%] bg-cam" style={THOI} />
-      <span className={cn("absolute size-[32%]", mauHo)} style={THOI} />
+
+      {/* Glow trong */}
+      <span
+        className="absolute inset-[-8%] rounded-full pointer-events-none z-0"
+        style={{
+          background:
+            "radial-gradient(circle at center, #ff3b16 0%, #ff4b25 35%, rgba(255, 75, 37, 0.5) 65%, transparent 100%)",
+          filter: "blur(10px)",
+        }}
+      />
+
+      {/* Thoi ngoài */}
+      <span
+        className={cn("absolute size-[46%] z-10", mauVien || mauHo)}
+        style={THOI}
+      />
+
+      {/* Rãnh cam */}
+      <span className="absolute size-[39%] bg-cam z-10" style={THOI} />
+
+      {/* Lõi trắng */}
+      <span className={cn("absolute size-[32%] z-10", mauHo)} style={THOI} />
     </span>
   );
 }

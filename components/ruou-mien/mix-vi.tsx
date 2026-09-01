@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/container";
 import { KhungVien } from "@/components/khung-vien";
 import { FadeIn } from "@/components/ui/fade-in";
-import { cn } from "@/lib/utils";
+import { cn, noWidow } from "@/lib/utils";
 
 type Cocktail = {
   ten: string;
@@ -322,10 +322,10 @@ export function MixVi() {
                   <div className="mt-3 text-base leading-relaxed text-cam flex-1">
                     <p>
                       <span className="font-semibold">Nguyên liệu:</span>{" "}
-                      {c.nguyenLieu.map((n) => n.ten).join(", ")}
+                      {noWidow(c.nguyenLieu.map((n) => n.ten).join(", "), 2)}
                     </p>
                     <p className="mt-1">
-                      <span className="font-semibold">Cách làm:</span> {c.cachLam}
+                      <span className="font-semibold">Cách làm:</span> {noWidow(c.cachLam, 3)}
                     </p>
                   </div>
                 </div>

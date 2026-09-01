@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,7 +9,7 @@ import { Container } from "@/components/container";
 import { NutMuiTen } from "@/components/nut-mui-ten";
 import { HoaTietKimCuong } from "@/components/hoa-tiet-kim-cuong";
 import { FadeIn } from "@/components/ui/fade-in";
-import { cn } from "@/lib/utils";
+import { cn, noWidow } from "@/lib/utils";
 
 const TRANG_NGUYEN_LIEU = [
   {
@@ -101,33 +101,16 @@ function NutGoc({ className }: { className?: string }) {
 
 function HoatTietThoCam() {
   return (
-    <div className="w-full overflow-hidden opacity-90 pt-6 sm:pt-10">
-      <svg
-        className="h-10 sm:h-14 w-full text-trang"
-        viewBox="0 0 1000 60"
-        preserveAspectRatio="none"
-      >
-        <pattern
-          id="tho-cam-pattern"
-          width="24"
-          height="60"
-          patternUnits="userSpaceOnUse"
-        >
-          <path
-            d="M12 0 L24 30 L12 60 L0 30 Z"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M12 10 L18 30 L12 50 L6 30 Z"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.2"
-          />
-        </pattern>
-        <rect width="1000" height="60" fill="url(#tho-cam-pattern)" />
-      </svg>
+    <div className="w-full overflow-hidden pt-4 sm:pt-6">
+      <div
+        className="h-12 sm:h-16 lg:h-20 w-full opacity-95"
+        style={{
+          backgroundImage: "url('/images/pattern-trang.png')",
+          backgroundRepeat: "repeat-x",
+          backgroundSize: "contain",
+          backgroundPosition: "bottom center",
+        }}
+      />
     </div>
   );
 }
@@ -245,10 +228,7 @@ export function NguyenLieu() {
         <FadeIn direction="up">
           <h2 className="font-display text-d2 font-bold text-cam">vùng nguyên liệu</h2>
           <p className="mx-auto mt-4 max-w-[760px] text-base text-den">
-            Nơi những hạt gạo và men truyền thống được chắt lọc từ mỗi vùng đất
-            miền Trung. Từ nguyên liệu bản địa đến phương thức ủ men, mỗi yếu tố
-            cùng góp phần tạo nên hương vị riêng và câu chuyện vùng miền trong
-            từng dòng rượu Miên.
+            {noWidow("Nơi những hạt gạo và men truyền thống được chắt lọc từ mỗi vùng đất miền Trung. Từ nguyên liệu bản địa đến phương thức ủ men, mỗi yếu tố cùng góp phần tạo nên hương vị riêng và câu chuyện vùng miền trong từng dòng rượu Miên.", 3)}
           </p>
 
           <div className="mt-8 flex justify-center">

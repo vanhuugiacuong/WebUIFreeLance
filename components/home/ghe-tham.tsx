@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { Container } from "@/components/container";
 import { FadeIn } from "@/components/ui/fade-in";
+import { noWidow } from "@/lib/utils";
 
 const ANH_SLIDE = [
   {
@@ -78,12 +79,7 @@ export function GheTham() {
         <FadeIn>
           <h2 className="font-display text-d2 font-bold text-cam">GHÉ THĂM MIÊN</h2>
           <p className="mx-auto mt-[clamp(1rem,2vw,2.5rem)] max-w-[540px] text-base leading-relaxed text-den">
-            Không chỉ là nơi tìm thấy những men vị miền Trung, Miên còn là không
-            gian dành cho những cuộc gặp và trải nghiệm. Trong không gian ấm áp
-            mang hơi thở bản địa đương đại, bạn có thể khám phá từng dòng rượu,
-            lắng nghe câu chuyện phía sau mỗi vùng vị, lựa chọn những món quà ý
-            nghĩa hay trực tiếp trải nghiệm pha chế tại quầy. Ghé Miên, thưởng một
-            vị men và mở ra một cuộc giao.
+            {noWidow("Không chỉ là nơi tìm thấy những men vị miền Trung, Miên còn là không gian dành cho những cuộc gặp và trải nghiệm. Trong không gian ấm áp mang hơi thở bản địa đương đại, bạn có thể khám phá từng dòng rượu, lắng nghe câu chuyện phía sau mỗi vùng vị, lựa chọn những món quà ý nghĩa hay trực tiếp trải nghiệm pha chế tại quầy. Ghé Miên, thưởng một vị men và mở ra một cuộc giao.", 3)}
           </p>
         </FadeIn>
       </Container>

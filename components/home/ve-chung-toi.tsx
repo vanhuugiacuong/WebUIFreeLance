@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/container";
 import { NutMuiTen } from "@/components/nut-mui-ten";
 import { FadeIn } from "@/components/ui/fade-in";
+import { noWidow } from "@/lib/utils";
 
 export function VeChungToi() {
   return (
@@ -16,10 +17,7 @@ export function VeChungToi() {
             VỀ CHÚNG TÔI
           </h2>
           <p className="mt-6 text-base text-den leading-relaxed">
-            Việt Nam có một kho tàng hương vị rượu say đắm lòng người, được chắt
-            chiu từ hạt gạo thơm và men lá ngàn năm. Thương hiệu Miên ra đời với
-            sứ mệnh khơi dậy niềm tự hào đó. Chúng tôi mang dòng chảy truyền
-            thống hòa vào dòng sống hiện đại.
+            {noWidow("Việt Nam có một kho tàng hương vị rượu say đắm lòng người, được chắt chiu từ hạt gạo thơm và men lá ngàn năm. Thương hiệu Miên ra đời với sứ mệnh khơi dậy niềm tự hào đó. Chúng tôi mang dòng chảy truyền thống hòa vào dòng sống hiện đại.", 3)}
           </p>
           <NutMuiTen href="/ve-chung-toi" className="mt-6">
             Xem thêm
