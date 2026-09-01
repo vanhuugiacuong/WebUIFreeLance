@@ -140,7 +140,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 30 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-[1120px] rounded-[28px] sm:rounded-[36px] bg-cam p-8 sm:p-11 lg:p-14 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-[1200px] rounded-[28px] sm:rounded-[36px] bg-cam p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Nút đóng tròn màu trắng với biểu tượng X màu cam góc trên bên phải INSIDE modal */}
@@ -169,7 +169,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
               alt={`Cocktail ${c.ten}`}
               fill
               priority
-              sizes="(max-width: 1024px) 92vw, 520px"
+              sizes="(max-width: 1024px) 92vw, 560px"
               className="object-cover transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
@@ -192,12 +192,12 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
             />
 
             {/* Khung viền góc khuyết bài chòi bọc TOÀN BỘ nội dung 100% Full Height */}
-            <div className="relative p-6 sm:p-8 flex-1 flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
+            <div className="relative p-5 sm:p-8 flex-1 flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
               <KhungVien mau="var(--color-cam)" doNet={2} className="inset-0 w-full h-full" />
 
-              <div className="relative text-cam grid grid-cols-[1.35fr_1fr] h-full gap-0 z-10">
+              <div className="relative text-cam grid grid-cols-[1.55fr_1fr] h-full gap-0 z-10">
                 {/* Cột trái: Tiêu đề + Khối nguyên liệu cam chữ trắng + 5 vị giác */}
-                <div className="flex flex-col border-r-2 border-cam pr-5 sm:pr-7 justify-between">
+                <div className="flex flex-col border-r-2 border-cam pr-4 sm:pr-7 justify-between">
                   <div>
                     {/* Dòng Tiêu đề - Căn giữa theo chiều dọc trong khoảng không gian trên khối nguyên liệu */}
                     <motion.div
@@ -216,7 +216,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
                       initial={{ opacity: 0, scale: 0.96, y: 10 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ duration: 0.35, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                      className="bg-cam text-trang -ml-6 sm:-ml-8 -mr-5 sm:-mr-7 px-5 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs"
+                      className="bg-cam text-trang -ml-5 sm:-ml-8 -mr-4 sm:-mr-7 px-4 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs"
                     >
                       {c.nguyenLieu.map((n) => (
                         <div key={n.ten} className="flex items-baseline justify-between gap-3">
@@ -235,10 +235,10 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
                         initial={{ opacity: 0, x: -12 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.25, delay: 0.3 + idx * 0.05 }}
-                        className="flex items-center justify-between gap-3"
+                        className="flex items-center justify-between gap-2 sm:gap-3"
                       >
-                        <span className="font-semibold text-cam">{nhan}</span>
-                        <span className="flex gap-2">
+                        <span className="font-semibold text-cam whitespace-nowrap">{nhan}</span>
+                        <span className="flex gap-1.5 sm:gap-2">
                           {[1, 2, 3, 4, 5].map((i) => (
                             <Diem key={i} day={i <= diem} />
                           ))}
