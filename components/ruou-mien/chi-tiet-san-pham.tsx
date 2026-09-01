@@ -68,7 +68,7 @@ export function ChiTietSanPham() {
 
   return (
     <section className="py-[clamp(2.5rem,5vw,4rem)]">
-      <Container className="relative">
+      <Container className="relative min-h-[640px]">
         <button
           type="button"
           onClick={truoc}
@@ -86,7 +86,7 @@ export function ChiTietSanPham() {
           <ChevronRight className="size-8" strokeWidth={2.5} />
         </button>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={sp.ten}
             initial={{ opacity: 0, x: 20 }}

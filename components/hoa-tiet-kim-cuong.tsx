@@ -49,15 +49,27 @@ export function HoaTietKimCuong({
 
       {/* Thoi ngoài */}
       <span
-        className={cn("absolute size-[46%] z-10", mauVien || mauHo)}
+        className={cn(
+          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[46%] z-10",
+          mauVien || mauHo,
+        )}
         style={THOI}
       />
 
       {/* Rãnh cam */}
-      <span className="absolute size-[39%] bg-cam z-10" style={THOI} />
+      <span
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[39%] bg-cam z-10"
+        style={THOI}
+      />
 
       {/* Lõi trắng */}
-      <span className={cn("absolute size-[32%] z-10", mauHo)} style={THOI} />
+      <span
+        className={cn(
+          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[32%] z-10",
+          mauHo,
+        )}
+        style={THOI}
+      />
     </span>
   );
 }

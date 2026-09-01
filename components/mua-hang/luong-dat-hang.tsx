@@ -164,10 +164,10 @@ export function LuongDatHang() {
 
   return (
     <section className="py-10 sm:py-14">
-      <Container className="flex flex-col items-center gap-10 sm:gap-12">
+      <Container className="flex flex-col items-center gap-10 sm:gap-12 min-h-[840px]">
         <BuocDatHang buoc={buoc} />
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {/* Bước 1 — Chọn sản phẩm (Matching Full-Page Figma Screenshot 100%) */}
           {buoc === 1 && (
             <motion.div

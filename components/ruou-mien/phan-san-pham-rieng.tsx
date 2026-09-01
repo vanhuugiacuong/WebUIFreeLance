@@ -47,8 +47,8 @@ export function PhanSanPhamRieng() {
 
   return (
     <section className="py-[clamp(2.5rem,5vw,4.5rem)] relative overflow-hidden">
-      <Container className="relative">
-        <AnimatePresence mode="wait">
+      <Container className="relative min-h-[720px]">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={sp.id}
             initial={{ opacity: 0, x: 30 }}
