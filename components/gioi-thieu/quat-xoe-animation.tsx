@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function QuatXoeAnimation({ className }: { className?: string }) {
   return (
-    <div className={cn("relative z-10  flex justify-center", className)}>
+    <div className={cn("relative z-10 mt-20 flex justify-center", className)}>
       <motion.div
         initial={{
           opacity: 0,

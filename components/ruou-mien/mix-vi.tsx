@@ -17,10 +17,10 @@ type Cocktail = {
   nguyenLieu: { ten: string; luong: string }[];
   cachLam: string;
   vi: [string, number][];
+  svgFile: string;
 };
 
-// Táo quế: số liệu & vị giác lấy đúng từ thiết kế. 5 vị còn lại là ước lượng
-// hợp lý dựa trên nguyên liệu (Figma chỉ chi tiết một công thức).
+// Táo quế, Gừng mật, Thanh mộc, Cà phê đêm, Dứa nhiệt đới, Cam quế
 const COCKTAIL: Cocktail[] = [
   {
     ten: "Táo quế",
@@ -34,6 +34,7 @@ const COCKTAIL: Cocktail[] = [
     ],
     cachLam: "Cho rượu, nước táo và đá vào ly. Khuấy nhẹ, thêm thanh quế và lát táo.",
     vi: [["Ngọt dịu", 4], ["Chua", 1], ["Cay/Nồng", 3], ["Đắng", 1], ["Thanh mát", 2]],
+    svgFile: "/svg/công thức mix vị-70.svg",
   },
   {
     ten: "Gừng mật",
@@ -48,6 +49,7 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho rượu, mật ong và gừng vào shaker cùng đá. Lắc đều, lọc vào ly và trang trí với lát gừng.",
     vi: [["Ngọt dịu", 3], ["Chua", 2], ["Cay/Nồng", 4], ["Đắng", 1], ["Thanh mát", 2]],
+    svgFile: "/svg/công thức mix vị-69.svg",
   },
   {
     ten: "Thanh mộc",
@@ -62,6 +64,7 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho rượu và đá vào ly. Thêm tonic sau cùng, khuấy nhẹ và trang trí với vỏ bưởi.",
     vi: [["Ngọt dịu", 2], ["Chua", 2], ["Cay/Nồng", 2], ["Đắng", 3], ["Thanh mát", 4]],
+    svgFile: "/svg/công thức mix vị-71.svg",
   },
   {
     ten: "Cà phê đêm",
@@ -74,6 +77,7 @@ const COCKTAIL: Cocktail[] = [
     ],
     cachLam: "Cho rượu, cà phê vào shaker cùng đá. Lắc lạnh, lọc vào ly đã ướp lạnh.",
     vi: [["Ngọt dịu", 3], ["Chua", 1], ["Cay/Nồng", 3], ["Đắng", 4], ["Thanh mát", 1]],
+    svgFile: "/svg/công thức mix vị-65.svg",
   },
   {
     ten: "Dứa nhiệt đới",
@@ -88,6 +92,7 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho tất cả nguyên liệu vào shaker cùng đá. Lắc đều, lọc vào ly và thêm bạc hà.",
     vi: [["Ngọt dịu", 4], ["Chua", 3], ["Cay/Nồng", 2], ["Đắng", 1], ["Thanh mát", 4]],
+    svgFile: "/svg/công thức mix vị-64.svg",
   },
   {
     ten: "Cam quế",
@@ -102,19 +107,9 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho tất cả nguyên liệu vào shaker cùng đá. Lắc đến khi lạnh, lọc vào ly và thêm cam.",
     vi: [["Ngọt dịu", 4], ["Chua", 2], ["Cay/Nồng", 3], ["Đắng", 1], ["Thanh mát", 2]],
+    svgFile: "/svg/công thức mix vị-66.svg",
   },
 ];
-
-function Diem({ day }: { day: boolean }) {
-  return (
-    <span
-      className={cn(
-        "size-3.5 sm:size-4 rounded-full border-2 border-cam transition-colors",
-        day ? "bg-cam" : "bg-transparent"
-      )}
-    />
-  );
-}
 
 function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
   useEffect(() => {
@@ -140,7 +135,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 30 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-[1200px] rounded-[28px] sm:rounded-[36px] bg-cam p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-[1100px] rounded-[28px] sm:rounded-[36px] bg-cam p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Nút đóng tròn màu trắng với biểu tượng X màu cam góc trên bên phải INSIDE modal */}
@@ -156,7 +151,7 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
           <X className="size-5" strokeWidth={3} />
         </motion.button>
 
-        <div className="grid gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-2 items-stretch">
+        <div className="grid gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-2 items-center">
           {/* Bức ảnh Cocktail hình vuông góc bo tròn mịn - Slide in from Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -174,106 +169,19 @@ function CongThuc({ c, dong }: { c: Cocktail; dong: () => void }) {
             />
           </motion.div>
 
-          {/* Thẻ vé công thức màu kem (Cream Ticket Card) - Slide in from Right */}
+          {/* Thẻ vé công thức SVG chính thức xuất thẳng từ Figma - Slide in from Right */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[24px] bg-[#fbf4ea] p-4 sm:p-6 lg:p-7 flex flex-col justify-between shadow-sm relative"
+            className="flex items-center justify-center relative w-full"
           >
-            {/* Logo Miên ở chính giữa trên cùng */}
-            <Image
-              src="/images/logo-header.webp"
-              alt="Miên"
-              width={96}
-              height={32}
-              priority
-              className="mx-auto h-6 sm:h-7 w-auto object-contain mb-3 sm:mb-4"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={encodeURI(c.svgFile)}
+              alt={`Công thức ${c.ten}`}
+              className="w-full h-auto max-h-[520px] object-contain block drop-shadow-md rounded-[24px]"
             />
-
-            {/* Khung viền góc khuyết bài chòi bọc TOÀN BỘ nội dung 100% Full Height */}
-            <div className="relative p-5 sm:p-8 flex-1 flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
-              <KhungVien mau="var(--color-cam)" doNet={2} className="inset-0 w-full h-full" />
-
-              <div className="relative text-cam grid grid-cols-[1.55fr_1fr] h-full gap-0 z-10">
-                {/* Cột trái: Tiêu đề + Khối nguyên liệu cam chữ trắng + 5 vị giác */}
-                <div className="flex flex-col border-r-2 border-cam pr-4 sm:pr-7 justify-between">
-                  <div>
-                    {/* Dòng Tiêu đề - Căn giữa theo chiều dọc trong khoảng không gian trên khối nguyên liệu */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                      className="min-h-[48px] sm:min-h-[56px] flex items-center mb-2 sm:mb-3"
-                    >
-                      <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
-                        {c.ten}
-                      </h3>
-                    </motion.div>
-
-                    {/* Khối Nguyên Liệu Cam Chữ Trắng - Nền cam tràn ra chạm viền Trái và Phải */}
-                    <motion.dl
-                      initial={{ opacity: 0, scale: 0.96, y: 10 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ duration: 0.35, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                      className="bg-cam text-trang -ml-5 sm:-ml-8 -mr-4 sm:-mr-7 px-4 sm:px-7 py-3.5 sm:py-4 space-y-2 text-xs sm:text-sm font-medium mb-4 shadow-xs"
-                    >
-                      {c.nguyenLieu.map((n) => (
-                        <div key={n.ten} className="flex items-baseline justify-between gap-3">
-                          <dt className="text-trang/95 font-medium">{n.ten}</dt>
-                          <dd className="shrink-0 tabular-nums font-bold text-trang">{n.luong}</dd>
-                        </div>
-                      ))}
-                    </motion.dl>
-                  </div>
-
-                  {/* Danh sách 5 thang đo Đặc điểm Vị giác - Staggered fade in */}
-                  <ul className="space-y-2 pt-2 text-xs sm:text-sm text-cam font-medium">
-                    {c.vi.map(([nhan, diem], idx) => (
-                      <motion.li
-                        key={nhan}
-                        initial={{ opacity: 0, x: -12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.25, delay: 0.3 + idx * 0.05 }}
-                        className="flex items-center justify-between gap-2 sm:gap-3"
-                      >
-                        <span className="font-semibold text-cam whitespace-nowrap">{nhan}</span>
-                        <span className="flex gap-1.5 sm:gap-2">
-                          {[1, 2, 3, 4, 5].map((i) => (
-                            <Diem key={i} day={i <= diem} />
-                          ))}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Cột phải: Độ rượu + Hướng dẫn cách làm */}
-                <div className="flex flex-col pl-5 sm:pl-7">
-                  {/* Dòng Độ rượu - Căn giữa theo chiều dọc khớp với cột trái */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                    className="min-h-[48px] sm:min-h-[56px] flex items-center justify-center mb-2 sm:mb-3 text-center"
-                  >
-                    <span className="font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-cam tracking-wider leading-none">
-                      {c.do}
-                    </span>
-                  </motion.div>
-
-                  {/* Đoạn văn Hướng dẫn cách làm */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.3 }}
-                    className="text-xs sm:text-sm leading-relaxed text-cam font-medium py-2"
-                  >
-                    <p>{c.cachLam}</p>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </motion.div>
