@@ -71,8 +71,8 @@ export function PhanSanPhamRieng() {
                 <ThanhThanhPhan thanhPhan={sp.thanhPhan} className="mt-8" />
               </div>
 
-              {/* Cột giữa: THÔNG TIN sản phẩm + Giá + Nút mua */}
-              <div className="flex flex-col justify-start min-w-[220px]">
+              {/* Cột giữa: THÔNG TIN sản phẩm + Giá */}
+              <div className="flex flex-col justify-start min-w-[180px]">
                 <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam leading-tight">
                   THÔNG TIN
                 </h3>
@@ -90,10 +90,24 @@ export function PhanSanPhamRieng() {
                     <dd className="text-den/80">{sp.gia}</dd>
                   </div>
                 </dl>
+              </div>
 
-                {/* Bộ đếm số lượng + Nút Thêm vào giỏ */}
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <div className="flex items-center rounded-md border border-den/40 px-2 py-1 bg-kem/50 shadow-xs">
+              {/* Cột phải: Bức ảnh chai rượu + Bộ đếm số lượng & Nút thêm vào giỏ bên dưới */}
+              <div className="flex flex-col items-center justify-center gap-6 self-center my-auto">
+                <div className="group cursor-pointer">
+                  <Image
+                    src={sp.anhChai}
+                    alt={`Chai ${sp.ten}`}
+                    width={318}
+                    height={542}
+                    priority
+                    className="h-[340px] sm:h-[400px] lg:h-[440px] w-auto object-contain drop-shadow-md transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2 group-hover:-rotate-1 group-hover:drop-shadow-2xl"
+                  />
+                </div>
+
+                {/* Bộ đếm số lượng + Nút Thêm vào giỏ đặt bên dưới chai rượu */}
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10">
+                  <div className="flex items-center rounded-xl border border-den/40 px-2.5 py-1 bg-kem/50 shadow-xs">
                     <button
                       type="button"
                       onClick={giam}
@@ -117,23 +131,11 @@ export function PhanSanPhamRieng() {
 
                   <Link
                     href="/mua-hang"
-                    className="inline-flex h-10 items-center rounded-full bg-cam px-7 text-sm sm:text-base font-normal text-trang transition-all duration-300 hover:bg-cam/90 hover:scale-108 hover:shadow-lg active:scale-95 cursor-pointer outline-none"
+                    className="inline-flex h-10 items-center rounded-full bg-cam px-7 text-sm sm:text-base font-normal text-trang transition-all duration-300 hover:bg-cam/90 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer outline-none"
                   >
                     Thêm vào giỏ
                   </Link>
                 </div>
-              </div>
-
-              {/* Cột phải: Bức ảnh chai rượu với hiệu ứng hover float & tilt */}
-              <div className="flex justify-center items-center group cursor-pointer">
-                <Image
-                  src={sp.anhChai}
-                  alt={`Chai ${sp.ten}`}
-                  width={318}
-                  height={542}
-                  priority
-                  className="h-[360px] sm:h-[420px] lg:h-[480px] w-auto object-contain drop-shadow-md transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2 group-hover:-rotate-1 group-hover:drop-shadow-2xl"
-                />
               </div>
             </div>
 

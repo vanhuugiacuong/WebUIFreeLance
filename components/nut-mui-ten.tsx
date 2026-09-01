@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
-/** Nút bo tròn nền cam/kem kèm mũi tên — dùng cho "Đăng ký ngay", "Xem thêm". */
+/** Nút bo tròn góc kem/cam kèm mũi tên tròn — dùng cho "Đăng ký ngay", "Xem thêm". */
 export function NutMuiTen({
   href,
   mau = "cam",
@@ -20,18 +19,22 @@ export function NutMuiTen({
     <Link
       href={href}
       className={cn(
-        "group inline-flex h-10 items-center gap-3 rounded-full pl-6 pr-5 text-sm sm:text-base font-normal transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer",
+        "group inline-flex h-11 items-center gap-3.5 rounded-xl pl-6 pr-2.5 text-sm sm:text-base font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer",
         laKem
-          ? "bg-[#fbf4ea] text-cam hover:bg-trang"
+          ? "bg-[#fff5ea] text-cam hover:bg-trang"
           : "bg-cam text-trang hover:bg-cam/90",
-        className
+        className,
       )}
     >
-      {children}
-      <ArrowRight
-        className="size-[19px] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:scale-110"
-        strokeWidth={2.2}
-      />
+      <span>{children}</span>
+      <span
+        className={cn(
+          "grid size-6 sm:size-7 place-items-center rounded-full transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-0.5",
+          laKem ? "bg-cam text-trang" : "bg-trang text-cam",
+        )}
+      >
+        <ArrowRight className="size-3.5 sm:size-4" strokeWidth={2.5} />
+      </span>
     </Link>
   );
 }

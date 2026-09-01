@@ -195,7 +195,6 @@ export default function VeChungToi() {
       {/* 7. Bottom Fan Illustration (Chuyển động quạt xòe chân thực) */}
       <QuatXoeAnimation />
 
-      <PatternDivider />
       <NutGioHang />
     </>
   );

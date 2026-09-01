@@ -29,7 +29,7 @@ export function Hero() {
         Rượu Miên — thưởng vị đậm đà, giao vị, trao men gắn kết
       </h1>
 
-      <Container className="flex flex-col items-center pt-[clamp(18rem,33vw,30rem)] pb-[clamp(3rem,7vw,6.5rem)]">
+      <Container className="flex flex-col items-center pt-[clamp(21rem,36vw,33rem)] pb-[clamp(2rem,5vw,4.5rem)]">
         <div className="grid w-full grid-cols-2 items-center gap-x-6 gap-y-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-x-10">
           {/* Badge: trên mobile ở hàng đầu, desktop ở vị trí giữa */}
           <motion.div
@@ -93,7 +93,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-6 sm:mt-8 lg:mt-10 z-10"
+          className="mt-8 sm:mt-10 lg:mt-12 z-10"
         >
           <NutMuiTen href="/mua-hang" mau="kem">
             Đăng ký ngay

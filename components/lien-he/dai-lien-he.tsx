@@ -7,6 +7,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { cn, noWidow } from "@/lib/utils";
 
+/** Icon User dạng solid màu cam */
+function IconUserSolid({ className }: { className?: string }) {
+  return (
+    <svg className={cn("fill-cam text-cam", className)} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+    </svg>
+  );
+}
+
+/** Icon Mail dạng solid màu cam */
+function IconMailSolid({ className }: { className?: string }) {
+  return (
+    <svg className={cn("fill-cam text-cam", className)} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+    </svg>
+  );
+}
+
 /** Ô input bo tròn nền kem */
 function O({
   icon: Icon,
@@ -14,7 +32,6 @@ function O({
 }: React.InputHTMLAttributes<HTMLInputElement> & {
   icon?: React.ComponentType<{
     className?: string;
-    strokeWidth?: number;
   }>;
 }) {
   return (
@@ -28,20 +45,19 @@ function O({
             top-1/2
             size-5
             -translate-y-1/2
-            text-cam/60
+            fill-cam
+            text-cam
             transition-colors
-            group-focus-within:text-cam
           "
-          strokeWidth={1.8}
         />
       )}
 
       <input
         {...props}
         className={cn(
-          "h-[54px] w-full rounded-full bg-[#fbf4ea]",
-          "text-base text-den font-medium",
-          "placeholder:text-den/40",
+          "h-[48px] sm:h-[50px] w-full rounded-full bg-[#fff5ea]",
+          "text-base text-den font-medium font-body",
+          "placeholder:text-[#c4b5a5] placeholder:font-normal",
           "transition-all duration-300",
           "shadow-xs",
           "focus:outline-none",
@@ -72,7 +88,7 @@ export function DaiLienHe() {
   const [daGui, setDaGui] = useState(false);
 
   return (
-    <section className="w-full overflow-hidden bg-cam text-trang">
+    <section className="w-full overflow-hidden text-trang">
       <div
         className="
           relative
@@ -101,13 +117,13 @@ export function DaiLienHe() {
             shrink-0
             overflow-hidden
             lg:w-[40%]
-            xl:w-[39%]
+            xl:w-[40%]
           "
         >
           <img
             src="/images/lien-he/band.webp"
             alt="Ghé Miên giao"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center scale-[1.04] origin-left -ml-[2px]"
           />
 
           {/* =================================================
@@ -148,7 +164,7 @@ export function DaiLienHe() {
             flex-1
             flex-col
             justify-center
-
+            bg-cam
             px-6
             py-12
 
@@ -226,7 +242,7 @@ export function DaiLienHe() {
               mt-8
               flex
               w-full
-              max-w-[680px]
+              max-w-[640px]
               flex-col
               items-start
               gap-6
@@ -243,12 +259,13 @@ export function DaiLienHe() {
           >
             {/* INPUTS */}
 
-            <div className="grid w-full gap-5 sm:grid-cols-2">
+            <div className="grid w-full gap-y-5 gap-x-8 sm:gap-x-12 lg:gap-x-14 sm:grid-cols-2">
               <label className="flex flex-col gap-2">
                 <span
                   className="
                     text-base
-                    font-semibold
+                    font-medium
+                    font-body
                     tracking-wide
                     text-trang
 
@@ -261,14 +278,15 @@ export function DaiLienHe() {
                   </span>
                 </span>
 
-                <O required icon={User} placeholder="Nguyễn Minh A" />
+                <O required icon={IconUserSolid} placeholder="Nguyễn Minh A" />
               </label>
 
               <label className="flex flex-col gap-2">
                 <span
                   className="
                     text-base
-                    font-semibold
+                    font-medium
+                    font-body
                     tracking-wide
                     text-trang
 
@@ -284,7 +302,7 @@ export function DaiLienHe() {
                 <O
                   required
                   type="email"
-                  icon={Mail}
+                  icon={IconMailSolid}
                   placeholder="nguyenminha@gmail.com"
                 />
               </label>
@@ -295,27 +313,26 @@ export function DaiLienHe() {
             <button
               type="submit"
               className="
-                mt-2
-                h-[52px]
+                mt-4
+                h-[48px]
                 w-full
-                max-w-[280px]
+                max-w-[240px]
+                sm:max-w-[260px]
+                self-center
                 cursor-pointer
                 rounded-full
-                bg-[#fbf4ea]
+                bg-[#fff5ea]
                 text-base
-                font-bold
-                uppercase
-                tracking-wider
+                font-medium
+                font-body
                 text-cam
                 shadow-md
                 outline-none
                 transition-all
                 duration-300
-
                 hover:scale-105
                 hover:bg-trang
                 hover:shadow-xl
-
                 active:scale-95
               "
             >

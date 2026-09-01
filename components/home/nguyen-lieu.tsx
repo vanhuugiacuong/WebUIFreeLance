@@ -126,11 +126,11 @@ function KhungNguyenLieu() {
     <div className="relative mx-auto w-full max-w-[960px] rounded-[28px] bg-[#fbf4ea] p-4 sm:p-6 lg:p-7">
       {/* Wrapper bọc khít thẻ màu cam để định vị 4 nút góc khuyết chuẩn xác 100% */}
       <div className="relative">
-        {/* 4 Nút góc khuyết kim cương đặt chính xác tại 4 tâm góc khuyết tròn */}
-        <NutGoc className="top-0 left-0 -translate-x-1/2 -translate-y-1/2" />
-        <NutGoc className="top-0 right-0 translate-x-1/2 -translate-y-1/2" />
-        <NutGoc className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
-        <NutGoc className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
+        {/* 4 Nút góc khuyết kim cương đặt chính xác tại tâm 4 góc khuyết tròn */}
+        <NutGoc className="top-2 left-2 -translate-x-1/2 -translate-y-1/2" />
+        <NutGoc className="top-2 right-2 translate-x-1/2 -translate-y-1/2" />
+        <NutGoc className="bottom-2 left-2 -translate-x-1/2 translate-y-1/2" />
+        <NutGoc className="bottom-2 right-2 translate-x-1/2 translate-y-1/2" />
 
         {/* Thẻ chính màu cam với 4 góc khuyết tròn âm (Inverted Rounded Notches) */}
         <div
