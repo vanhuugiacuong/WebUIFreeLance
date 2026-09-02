@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
+import { motion } from "framer-motion";
+
 import { Container } from "@/components/container";
 import {
   Sheet,
@@ -42,12 +44,19 @@ function NavLink({
       onClick={onClick}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "text-base whitespace-nowrap shrink-0 transition-colors hover:text-cam",
+        "relative py-1 text-base whitespace-nowrap shrink-0 transition-colors duration-200 hover:text-cam",
         active ? "font-semibold text-cam" : "font-normal text-den hover:font-semibold",
         className,
       )}
     >
       {nhan}
+      {active && (
+        <motion.span
+          layoutId="active-nav-indicator"
+          className="absolute -bottom-1 left-0 right-0 h-[2.5px] rounded-full bg-cam shadow-[0_0_8px_rgba(242,91,40,0.5)]"
+          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+        />
+      )}
     </Link>
   );
 }

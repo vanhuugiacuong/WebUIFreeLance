@@ -107,13 +107,20 @@ export function DanhGia() {
                   setDaGui(false);
                 }}
                 className={cn(
-                  "h-11 px-7 text-sm font-normal transition-colors cursor-pointer rounded-full",
+                  "relative h-11 px-7 text-sm cursor-pointer rounded-full overflow-hidden transition-colors duration-200",
                   tab === t.id
-                    ? "bg-[#fcae84] text-den"
+                    ? "text-den font-medium"
                     : "bg-[#fcd7c2]/60 text-den/80 hover:bg-[#fcd7c2]"
                 )}
               >
-                {t.nhan}
+                {tab === t.id && (
+                  <motion.span
+                    layoutId="active-danhgia-tab"
+                    className="absolute inset-0 bg-[#fcae84] rounded-full -z-0"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{t.nhan}</span>
               </button>
             ))}
           </div>
