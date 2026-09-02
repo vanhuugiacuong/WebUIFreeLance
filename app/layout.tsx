@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Phudu, Montserrat } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -35,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="vi" className={cn(phudu.variable, montserrat.variable)} suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="age-check"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('mien-du-tuoi')==='1'){document.documentElement.classList.add('du-tuoi');}}catch(e){}})()`,
           }}
