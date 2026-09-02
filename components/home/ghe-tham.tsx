@@ -73,7 +73,7 @@ export function GheTham() {
   };
 
   return (
-    <section className="overflow-hidden py-[clamp(2.5rem,5vw,4rem)]">
+    <section className="overflow-hidden pt-0 pb-[clamp(2.5rem,5vw,4rem)]">
       <Container narrow className="text-center">
         <FadeIn>
           <h2 className="font-display text-d2 font-bold text-cam">GHÉ THĂM MIÊN</h2>

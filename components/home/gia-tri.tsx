@@ -26,7 +26,7 @@ const GIA_TRI = [
 
 export function GiaTri() {
   return (
-    <section className="py-[clamp(2.5rem,6vw,5rem)]">
+    <section className="pt-[clamp(2.5rem,6vw,5rem)] pb-0">
       <Container>
         <FadeIn direction="up">
           <h2 className="mx-auto max-w-[860px] text-center font-display text-d2 font-bold text-cam">

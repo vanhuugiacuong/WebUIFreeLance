@@ -7,7 +7,12 @@ import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
 import { Container } from "@/components/container";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const NAV_TRAI = [
@@ -39,7 +44,7 @@ function NavLink({
       className={cn(
         "text-base whitespace-nowrap shrink-0 transition-colors hover:text-cam",
         active ? "font-semibold text-cam" : "font-normal text-den",
-        className
+        className,
       )}
     >
       {nhan}
@@ -90,12 +95,15 @@ export function SiteHeader() {
         "fixed inset-x-0 top-0 z-50 py-3.5 transition-all duration-300",
         daCuon
           ? "bg-kem/95 backdrop-blur-md shadow-sm border-b border-cam/15"
-          : "bg-transparent"
+          : "bg-transparent",
       )}
     >
       <Container className="flex items-center justify-between lg:justify-center gap-4 sm:gap-6 lg:gap-8 xl:gap-14 2xl:gap-18">
         {/* Trái: Nav links (Desktop) */}
-        <nav className="hidden items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-14 2xl:gap-18 lg:flex" aria-label="Điều hướng chính">
+        <nav
+          className="hidden items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-14 2xl:gap-18 lg:flex"
+          aria-label="Điều hướng chính"
+        >
           {NAV_TRAI.map((m) => (
             <NavLink
               key={m.href}
@@ -157,10 +165,13 @@ export function SiteHeader() {
         <div className="hidden lg:flex items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-14 2xl:gap-18">
           <Link
             href="/mua-hang"
-            className="inline-flex h-9 items-center rounded-full bg-cam px-6 text-sm sm:text-base font-normal text-trang whitespace-nowrap shrink-0 transition-opacity hover:opacity-90"
+            className={`inline-flex h-9 items-center rounded-full bg-cam px-6 text-sm sm:text-base text-trang whitespace-nowrap shrink-0 transition-all duration-200 hover:opacity-90 hover:font-semibold ${
+              pathname === "/mua-hang" ? "font-semibold" : "font-normal"
+            }`}
           >
             Mua hàng
           </Link>
+
           {NAV_PHAI.map((m) => (
             <NavLink key={m.href} {...m} active={dangO(m.href)} />
           ))}

@@ -23,7 +23,7 @@ export function HoaTietKimCuong({
     <span
       aria-hidden
       className={cn(
-        "relative grid aspect-square place-items-center",
+        "relative grid aspect-square place-items-center shrink-0",
         className,
       )}
     >

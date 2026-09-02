@@ -21,7 +21,9 @@ export const metadata: Metadata = {
 /** Dải phân cách hình đồng tiền giữa các mục */
 function CoinNgan() {
   return (
-    <HoaTietKimCuong className="mx-auto my-[clamp(2.5rem,5vw,4.5rem)] size-[80px] sm:size-[88px]" />
+    <div className="flex justify-center items-center my-[clamp(2.5rem,5vw,4.5rem)]">
+      <HoaTietKimCuong className="size-[80px] sm:size-[88px]" />
+    </div>
   );
 }
 

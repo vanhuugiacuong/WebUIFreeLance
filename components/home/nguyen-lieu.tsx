@@ -224,10 +224,12 @@ function KhungNguyenLieu() {
 
 export function NguyenLieu() {
   return (
-    <section className="py-[clamp(2.5rem,6vw,5rem)]">
-      <DongTien />
+    <section className="py-0">
+      <div className="py-[clamp(2.5rem,5vw,4.5rem)] flex justify-center items-center">
+        <DongTien />
+      </div>
 
-      <Container narrow className="mt-[clamp(2rem,5vw,3.5rem)] text-center">
+      <Container narrow className="text-center">
         <FadeIn direction="up">
           <h2 className="font-display text-d2 font-bold text-cam">
             vùng nguyên liệu
@@ -249,7 +251,7 @@ export function NguyenLieu() {
         </FadeIn>
       </Container>
 
-      <div className="mt-[clamp(2.5rem,6vw,5rem)]">
+      <div className="py-[clamp(2.5rem,5vw,4.5rem)] flex justify-center items-center">
         <DongTien />
       </div>
     </section>

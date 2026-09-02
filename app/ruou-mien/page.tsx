@@ -21,7 +21,9 @@ export default function RuouMien() {
       <DaiBoSuuTap />
       <PatternDivider />
       <PhanSanPhamRieng />
-      <HoaTietKimCuong className="mx-auto my-[clamp(1.5rem,4vw,3rem)] size-[88px]" />
+      <div className="flex justify-center items-center my-[clamp(1.5rem,4vw,3rem)]">
+        <HoaTietKimCuong className="size-[88px]" />
+      </div>
       <MixVi />
       <PatternDivider />
       <NutGioHang />
