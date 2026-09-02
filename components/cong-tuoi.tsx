@@ -83,12 +83,12 @@ export function CongTuoi() {
               </motion.div>
             ) : (
               <div className="flex max-w-[820px] flex-col items-center gap-10">
-                <h1 className="font-display text-[clamp(2rem,5vw,3.75rem)] font-black uppercase leading-[1.1] overflow-hidden">
+                <h1 className="font-display text-[clamp(2rem,5vw,3.75rem)] font-black uppercase leading-[1.25] py-2">
                   <motion.span
                     initial={{ opacity: 0, x: -70 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    className="block"
+                    className="block py-1"
                   >
                     Bạn đã đủ tuổi
                   </motion.span>
@@ -96,7 +96,7 @@ export function CongTuoi() {
                     initial={{ opacity: 0, x: 70 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    className="block"
+                    className="block py-1"
                   >
                     thưởng thức rượu chưa?
                   </motion.span>
