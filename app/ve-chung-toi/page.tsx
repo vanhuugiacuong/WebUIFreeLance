@@ -87,10 +87,10 @@ export default function VeChungToi() {
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam">
               KHI RƯỢU THÀNH SỢI DÂY KẾT NỐI
             </h2>
-            <p className="mt-8 max-w-[840px] mx-auto text-center text-sm sm:text-base leading-relaxed text-den/90">
+            <p className="mt-8 max-w-[840px] mx-auto text-justify text-sm sm:text-base leading-relaxed text-den/90">
               Có những cuộc gặp bắt đầu bằng một lời mời, những câu chuyện được mở ra bên một chén rượu và những tình cảm được trao đi qua một món quà.
             </p>
-            <p className="mt-6 max-w-[840px] mx-auto text-left sm:text-justify text-sm sm:text-base leading-relaxed text-den/90">
+            <p className="mt-6 max-w-[840px] mx-auto text-justify text-sm sm:text-base leading-relaxed text-den/90">
               Với Miên, rượu không chỉ để thưởng thức. Đó còn là chất xúc tác đưa con người đến gần nhau hơn trong cuộc vui giữa bạn bè, một lần gặp gỡ, một lời chúc hay món quà được trao bằng sự trân trọng. Bởi điều Miên muốn lưu lại sau mỗi vị men không chỉ là dư vị, mà còn là dư âm của một cuộc giao.
             </p>
 
@@ -128,10 +128,10 @@ export default function VeChungToi() {
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam">
               BÀI CHÒI CÙNG MIÊN
             </h2>
-            <p className="mt-8 max-w-[840px] mx-auto text-center text-sm sm:text-base leading-relaxed text-den/90">
+            <p className="mt-8 max-w-[840px] mx-auto text-justify text-sm sm:text-base leading-relaxed text-den/90">
               Bài Chòi được Miên lựa chọn không chỉ bởi đây là một nét văn hóa đặc trưng của miền Trung, mà còn bởi tinh thần gặp gỡ, đối đáp và kết nối cộng đồng ẩn chứa bên trong loại hình nghệ thuật này.
             </p>
-            <p className="mt-6 max-w-[840px] mx-auto text-left sm:text-justify text-sm sm:text-base leading-relaxed text-den/90">
+            <p className="mt-6 max-w-[840px] mx-auto text-justify text-sm sm:text-base leading-relaxed text-den/90">
               Từ những quân bài, nhịp điệu đến cách mọi người cùng tham gia vào một cuộc chơi, tinh thần Bài Chòi được Miên chuyển hóa thành ngôn ngữ thiết kế và những trải nghiệm tương tác mới. Nhờ đó, văn hóa không chỉ xuất hiện để được nhìn ngắm, trải nghiệm và tiếp tục kết nối trong đời sống.
             </p>
 
@@ -169,7 +169,7 @@ export default function VeChungToi() {
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-cam">
               ĐỘI NGŨ MIÊN
             </h2>
-            <p className="mt-8 max-w-[840px] mx-auto text-left sm:text-justify text-sm sm:text-base leading-relaxed text-den/90">
+            <p className="mt-8 max-w-[840px] mx-auto text-justify text-sm sm:text-base leading-relaxed text-den/90">
               Đằng sau mỗi trải nghiệm tại Miên là những người cùng chung sự trân trọng dành cho men vị và văn hóa miền Trung. Không chỉ am hiểu sản phẩm, đội ngũ Miên luôn đề cao sự nồng hậu, tinh tế và gần gũi trong từng cách đón tiếp, tư vấn và sẻ chia câu chuyện. Bởi với Miên, mỗi vị khách ghé đến không đơn thuần để chọn một chai rượu, mà còn để bắt đầu một cuộc giao.
             </p>
 

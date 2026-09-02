@@ -227,7 +227,7 @@ export function MixVi() {
                   <h3 className="mt-6 font-display text-d3 font-semibold uppercase text-cam">
                     {c.ten}
                   </h3>
-                  <div className="mt-3 text-base leading-relaxed text-cam flex-1">
+                  <div className="mt-3 text-base leading-relaxed text-cam flex-1 text-left w-full">
                     <p>
                       <span className="font-semibold">Nguyên liệu:</span>{" "}
                       {noWidow(c.nguyenLieu.map((n) => n.ten).join(", "), 2)}

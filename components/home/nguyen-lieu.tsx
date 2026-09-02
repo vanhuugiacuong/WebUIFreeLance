@@ -17,12 +17,12 @@ const TRANG_NGUYEN_LIEU = [
     danhSach: [
       {
         ten: "GẠO GÒ NỔI",
-        anh: "/svg/chai rượu-33.svg",
+        anh: "/svg/chai rượu-34.svg",
         alt: "Gạo Gò Nổi",
       },
       {
         ten: "NẾP BÀ RÉN",
-        anh: "/svg/chai rượu-34.svg",
+        anh: "/svg/chai rượu-36.svg",
         alt: "Nếp Bà Rén",
       },
       {
@@ -37,7 +37,7 @@ const TRANG_NGUYEN_LIEU = [
     danhSach: [
       {
         ten: "NƯỚC TẠI LÀNG",
-        anh: "/svg/chai rượu-36.svg",
+        anh: "/svg/chai rượu-33.svg",
         alt: "Nước Tại Làng",
       },
       {

@@ -73,20 +73,21 @@ export function LoiMoDau() {
             lg:py-14
           "
         >
-          <FadeIn direction="up" delay={0.15} className="w-full max-w-[600px]">
+          <FadeIn direction="up" delay={0.15} className="w-full max-w-[640px]">
             {/* Title */}
             <h2
               className="
                 w-full
                 text-center
                 font-display
-                text-xl
+                text-2xl
+                sm:text-3xl
+                lg:text-4xl
                 font-bold
                 uppercase
-                leading-[1.3]
-                tracking-wide
+                leading-snug
+                tracking-wider
                 text-trang
-                sm:text-2xl
               "
             >
               MỘT HÀNH TRÌNH BẢN ĐỊA ĐƯƠNG ĐẠI
@@ -97,13 +98,14 @@ export function LoiMoDau() {
             {/* Paragraph 1 */}
             <p
               className="
-                mt-6
+                mt-7
+                sm:mt-8
                 text-justify
-                text-sm
-                leading-[1.35]
+                text-base
+                sm:text-base
+                lg:text-lg
+                leading-relaxed
                 text-trang/95
-                sm:mt-7
-                sm:text-[15px]
               "
             >
               {noWidow(
@@ -115,13 +117,14 @@ export function LoiMoDau() {
             {/* Paragraph 2 */}
             <p
               className="
-                mt-4
+                mt-5
+                sm:mt-6
                 text-justify
-                text-sm
-                leading-[1.35]
+                text-base
+                sm:text-base
+                lg:text-lg
+                leading-relaxed
                 text-trang/95
-                sm:mt-5
-                sm:text-[15px]
               "
             >
               {noWidow(
