@@ -30,7 +30,17 @@ export function Nut({
 
   if (href) {
     return (
-      <Link href={href} className={cls} onClick={onClick}>
+      <Link
+        href={href}
+        scroll={true}
+        className={cls}
+        onClick={(e) => {
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+          }
+          if (onClick) onClick();
+        }}
+      >
         {children}
       </Link>
     );

@@ -18,6 +18,12 @@ export function NutMuiTen({
   return (
     <Link
       href={href}
+      scroll={true}
+      onClick={() => {
+        if (typeof window !== "undefined") {
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        }
+      }}
       className={cn(
         "group inline-flex h-11 items-center gap-3.5 rounded-xl pl-6 pr-2.5 text-sm sm:text-base font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer",
         laKem

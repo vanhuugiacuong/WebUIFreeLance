@@ -43,7 +43,7 @@ function NavLink({
       aria-current={active ? "page" : undefined}
       className={cn(
         "text-base whitespace-nowrap shrink-0 transition-colors hover:text-cam",
-        active ? "font-semibold text-cam" : "font-normal text-den",
+        active ? "font-semibold text-cam" : "font-normal text-den hover:font-semibold",
         className,
       )}
     >
