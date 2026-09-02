@@ -3,11 +3,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+import { PatternDivider } from "@/components/pattern-divider";
 import { cn } from "@/lib/utils";
 
 export function QuatXoeAnimation({ className }: { className?: string }) {
   return (
-    <div className={cn("relative z-10 mt-20 flex justify-center", className)}>
+    <div
+      className={cn(
+        "relative z-10 mt-4 sm:mt-10 flex flex-col items-center",
+        className,
+      )}
+    >
       <motion.div
         initial={{
           opacity: 0,
@@ -34,17 +40,18 @@ export function QuatXoeAnimation({ className }: { className?: string }) {
           transition: { duration: 0.5, ease: "easeOut" },
         }}
         style={{ transformOrigin: "bottom center" }}
-        className="cursor-pointer"
+        className="cursor-pointer z-10 -mb-2 sm:-mb-4"
       >
         <Image
           src="/images/gioi-thieu/web-48.png"
           alt="Họa tiết quạt xòe Bài Chòi"
           width={591}
           height={296}
-          className="h-auto w-[280px] sm:w-[420px] lg:w-[480px] object-contain block drop-shadow-sm"
+          className="mb-4 h-auto w-[280px] sm:w-[420px] lg:w-[480px] object-contain block drop-shadow-sm"
           priority
         />
       </motion.div>
+      <PatternDivider className="w-full" />
     </div>
   );
 }

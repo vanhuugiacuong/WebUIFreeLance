@@ -5,37 +5,129 @@ import { noWidow } from "@/lib/utils";
 export function LoiMoDau() {
   return (
     <section className="relative w-full overflow-hidden bg-cam text-kem">
-      <div className="flex flex-col lg:flex-row items-stretch w-full">
-        {/* Cột trái (40% width): Ảnh tỉ lệ chuẩn 1:1 theo Figma (579x579), tỉ lệ 4:6 chuẩn xác */}
-        <div className="relative w-full lg:w-[40%] aspect-square sm:aspect-auto lg:min-h-[480px] shrink-0 overflow-hidden group">
+      <div className="flex min-h-[600px] flex-col lg:flex-row">
+        {/* =========================
+            IMAGE
+        ========================== */}
+        <div
+          className="
+            relative
+            w-full
+            h-[320px]
+            lg:h-auto
+            lg:w-[32%]
+            shrink-0
+            overflow-hidden
+            group
+          "
+        >
           <Image
             src="/images/gioi-thieu/cau-chuyen.png"
             alt="Silhouette ly và chai rượu Miên"
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            className="object-cover object-[left_75%] transition-transform duration-700 ease-out group-hover:scale-105"
+            sizes="(max-width: 1024px) 100vw, 32vw"
+            className="
+              object-cover
+              object-[left_center]
+              transition-transform
+              duration-700
+              ease-out
+              group-hover:scale-105
+            "
           />
 
-          {/* Đường blur + Gradient phân cách ranh giới 2 bên (mép 40% và 60%) */}
-          <div className="absolute inset-y-0 right-0 w-28 sm:w-40 lg:w-48 bg-gradient-to-l from-cam via-cam/85 to-transparent backdrop-blur-[5px] pointer-events-none z-10" />
+          {/* Fade ảnh → nền cam */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              inset-y-0
+              right-0
+              z-10
+              w-20
+              sm:w-28
+              lg:w-36
+              bg-gradient-to-l
+              from-cam
+              via-cam/40
+              to-transparent
+            "
+          />
         </div>
 
-        {/* Cột phải (60% width): Nội dung căn giữa tiêu đề, 2 đoạn văn canh đều hai bên */}
-        <div className="flex flex-col items-center justify-center py-12 lg:py-16 px-6 sm:px-10 lg:px-16 w-full lg:w-[60%] shrink-0">
-          <FadeIn direction="up" delay={0.15} className="flex flex-col items-center w-full max-w-[600px]">
-            <h2 className="w-full font-display text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-wider text-trang leading-snug text-center">
+        {/* =========================
+            CONTENT
+        ========================== */}
+        <div
+          className="
+            flex
+            w-full
+            flex-1
+            items-center
+            justify-center
+            px-6
+            py-12
+            sm:px-10
+            lg:px-14
+            lg:py-14
+          "
+        >
+          <FadeIn direction="up" delay={0.15} className="w-full max-w-[600px]">
+            {/* Title */}
+            <h2
+              className="
+                w-full
+                text-center
+                font-display
+                text-xl
+                font-bold
+                uppercase
+                leading-[1.3]
+                tracking-wide
+                text-trang
+                sm:text-2xl
+              "
+            >
               MỘT HÀNH TRÌNH BẢN ĐỊA ĐƯƠNG ĐẠI
               <br />
               MEN VỊ MIỀN TRUNG
             </h2>
 
-            <p className="mt-7 sm:mt-8 w-full text-sm sm:text-base leading-relaxed text-trang/95 text-justify">
-              {noWidow("Bị cuốn hút bởi chiều sâu văn hóa và hương vị nồng ấm của những dòng rượu truyền thống Việt Nam, chúng tôi khát khao tạo nên một thương hiệu rượu bản địa mang tầm vóc đương đại.", 3)}
+            {/* Paragraph 1 */}
+            <p
+              className="
+                mt-6
+                text-justify
+                text-sm
+                leading-[1.35]
+                text-trang/95
+                sm:mt-7
+                sm:text-[15px]
+              "
+            >
+              {noWidow(
+                "Bị cuốn hút bởi chiều sâu văn hóa và hương vị nồng ấm của những dòng rượu truyền thống Việt Nam, chúng tôi khát khao tạo nên một thương hiệu rượu bản địa mang tầm vóc đương đại.",
+                3,
+              )}
             </p>
 
-            <p className="mt-5 sm:mt-6 w-full text-sm sm:text-base leading-relaxed text-trang/95 text-justify">
-              {noWidow("Hành trình tìm kiếm những nguyên liệu thuần khiết nhất bắt đầu từ những cánh đồng nếp đơm bông đẫm sương mai, đưa chúng tôi đi dọc dải đất miền Trung nắng gió. Với Miên, rượu không chỉ là thức uống. Đó còn là một phần của những cuộc gặp, những lời mời, lời chúc và những câu chuyện được mở ra khi mọi người ngồi lại cùng nhau.", 3)}
+            {/* Paragraph 2 */}
+            <p
+              className="
+                mt-4
+                text-justify
+                text-sm
+                leading-[1.35]
+                text-trang/95
+                sm:mt-5
+                sm:text-[15px]
+              "
+            >
+              {noWidow(
+                "Hành trình tìm kiếm những nguyên liệu thuần khiết nhất bắt đầu từ những cánh đồng nếp đơm bông đẫm sương mai, đưa chúng tôi đi dọc dải đất miền Trung nắng gió. Với Miên, rượu không chỉ là thức uống. Đó còn là một phần của những cuộc gặp, những lời mời, lời chúc và những câu chuyện được mở ra khi mọi người ngồi lại cùng nhau.",
+                3,
+              )}
             </p>
           </FadeIn>
         </div>

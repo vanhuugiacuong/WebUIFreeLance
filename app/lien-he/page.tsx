@@ -17,13 +17,16 @@ export default function LienHe() {
       <div className="h-[66px] sm:h-[70px]" aria-hidden />
 
       {/* 2. Khoảng trống nền kem TRÊN banner */}
-      <div className="h-20" aria-hidden />
+      <div className="h-12 sm:h-16 lg:h-20" aria-hidden />
 
       {/* 3. Banner chính Liên hệ */}
       <DaiLienHe />
 
-      {/* 2. Khoảng trống nền kem TRÊN banner */}
-      <div className="h-40" aria-hidden />
+      {/* 4. Khoảng trống nền kem DƯỚI banner */}
+      <div className="h-16 sm:h-24 lg:h-32" aria-hidden />
+
+      {/* 5. Pattern họa tiết dải thổ cẩm viền dưới trước footer */}
+      <PatternDivider />
 
       <NutGioHang />
     </>
