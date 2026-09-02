@@ -101,9 +101,7 @@ export function LoiMoDau() {
                 mt-7
                 sm:mt-8
                 text-justify
-                text-base
-                sm:text-base
-                lg:text-lg
+               text-sm sm:text-base
                 leading-relaxed
                 text-trang/95
               "
@@ -120,9 +118,7 @@ export function LoiMoDau() {
                 mt-5
                 sm:mt-6
                 text-justify
-                text-base
-                sm:text-base
-                lg:text-lg
+                text-sm sm:text-base
                 leading-relaxed
                 text-trang/95
               "
