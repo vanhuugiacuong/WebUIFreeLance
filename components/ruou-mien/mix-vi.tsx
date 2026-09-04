@@ -34,7 +34,7 @@ const COCKTAIL: Cocktail[] = [
     ],
     cachLam: "Cho rượu, nước táo và đá vào ly. Khuấy nhẹ, thêm thanh quế và lát táo.",
     vi: [["Ngọt dịu", 4], ["Chua", 1], ["Cay/Nồng", 3], ["Đắng", 1], ["Thanh mát", 2]],
-    svgFile: "/svg/công thức mix vị-70.svg",
+    svgFile: "/svg/công thức mix vị-69.svg",
   },
   {
     ten: "Gừng mật",
@@ -49,7 +49,7 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho rượu, mật ong và gừng vào shaker cùng đá. Lắc đều, lọc vào ly và trang trí với lát gừng.",
     vi: [["Ngọt dịu", 3], ["Chua", 2], ["Cay/Nồng", 4], ["Đắng", 1], ["Thanh mát", 2]],
-    svgFile: "/svg/công thức mix vị-69.svg",
+    svgFile: "/svg/công thức mix vị-65.svg",
   },
   {
     ten: "Thanh mộc",
@@ -77,7 +77,7 @@ const COCKTAIL: Cocktail[] = [
     ],
     cachLam: "Cho rượu, cà phê vào shaker cùng đá. Lắc lạnh, lọc vào ly đã ướp lạnh.",
     vi: [["Ngọt dịu", 3], ["Chua", 1], ["Cay/Nồng", 3], ["Đắng", 4], ["Thanh mát", 1]],
-    svgFile: "/svg/công thức mix vị-65.svg",
+    svgFile: "/svg/công thức mix vị-70.svg",
   },
   {
     ten: "Dứa nhiệt đới",
@@ -92,7 +92,7 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho tất cả nguyên liệu vào shaker cùng đá. Lắc đều, lọc vào ly và thêm bạc hà.",
     vi: [["Ngọt dịu", 4], ["Chua", 3], ["Cay/Nồng", 2], ["Đắng", 1], ["Thanh mát", 4]],
-    svgFile: "/svg/công thức mix vị-64.svg",
+    svgFile: "/svg/công thức mix vị-66.svg",
   },
   {
     ten: "Cam quế",
@@ -107,7 +107,7 @@ const COCKTAIL: Cocktail[] = [
     cachLam:
       "Cho tất cả nguyên liệu vào shaker cùng đá. Lắc đến khi lạnh, lọc vào ly và thêm cam.",
     vi: [["Ngọt dịu", 4], ["Chua", 2], ["Cay/Nồng", 3], ["Đắng", 1], ["Thanh mát", 2]],
-    svgFile: "/svg/công thức mix vị-66.svg",
+    svgFile: "/svg/công thức mix vị-64.svg",
   },
 ];
 
